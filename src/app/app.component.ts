@@ -16,7 +16,8 @@ import { StepsDatesDialog } from './steps-dates-dialog/steps-dates-dialog';
 import { GanttDialog } from './gantt-dialog/gantt-dialog';
 import { TimelineDialog } from './timeline-dialog/timeline-dialog';
 import { HttpClient } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
+import { jsPDF } from 'jspdf'
+import html2canvas from 'html2canvas';
 
 declare var anime: any;  
 
@@ -87,7 +88,7 @@ export class AppComponent implements OnInit{
       <h1><span class='country'></span>: SNOMED CT Implementation Roadmap</h1>
       <div class="Background"></div>
       <div class="Vision"></div>
-      <div class="Current-state"></div>
+      <div class="Current-eHealth-landscape"></div>
       <div class="Goals"></div>
       <div class="Clinical-focus"></div>
       <div class="Steps"></div>
@@ -117,7 +118,7 @@ export class AppComponent implements OnInit{
         this.selectedVisions.forEach((vision: any) => {
           visionsText = visionsText + `${vision.text}<br>`;
         })
-        this.replaceSection('Vision', `<h2>Vision</h2>${visionsText}<br><br>`);
+        this.replaceSection('Vision', `<h2>Vision</h2><ul>${visionsText}<ul>`);
         this.nameChanged()
       } else {
         this.replaceSection('Vision', '');
@@ -132,7 +133,7 @@ export class AppComponent implements OnInit{
         this.selectedGoals.forEach((goal: any) => {
           goalsText = goalsText + `<li><b>${goal.opSelector}:</b> ${goal.text}</li>`;
         })
-        this.replaceSection('Goals', `<h2>Goals</h2>${goalsText}</ul><br><br>`);
+        this.replaceSection('Goals', `<h2>Goals</h2>${goalsText}</ul>`);
         this.nameChanged()
       } else {
         this.replaceSection('Goals', '');
@@ -147,7 +148,7 @@ export class AppComponent implements OnInit{
         this.selectedClinicalFocus.forEach((focus: any) => {
           focusText = focusText + `<li><b>${focus.opSelector}:</b> ${focus.text}</li>`;
         })
-        this.replaceSection('Clinical-Focus', `<h2>Clinical focus</h2>${focusText}</ul><br><br>`);
+        this.replaceSection('Clinical-Focus', `<h2>Clinical focus</h2>${focusText}</ul>`);
         this.nameChanged()
       } else {
         this.replaceSection('Clinical-Focus', '');
@@ -194,7 +195,7 @@ export class AppComponent implements OnInit{
           })
           stepsText = stepsText + `</ul></li>`;
         });
-        this.replaceSection('Steps', `<h2>Implementation steps</h2>${stepsText}</ul><br><br>`);
+        this.replaceSection('Steps', `<h2>Implementation steps</h2>${stepsText}</ul>`);
         this.nameChanged()
       } else {
         this.replaceSection('Steps', '');
@@ -356,7 +357,7 @@ export class AppComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       this.selectedCurrentState.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      this.updateFromData('Current-state', this.selectedCurrentState);
+      this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
       this.nameChanged();
     });
   }
@@ -495,7 +496,7 @@ export class AppComponent implements OnInit{
     this.selectedVisions = [];
     this.changeVision();
     this.selectedCurrentState = null;
-    this.updateFromData('Current-state', this.selectedCurrentState);
+    this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
     this.selectedGoals = [];
     this.changeGoals();
     this.selectedClinicalFocus = [];
@@ -533,7 +534,7 @@ export class AppComponent implements OnInit{
     this.selectedVisions = uploadedVersion.selectedVisions;
     this.changeVision();
     this.selectedCurrentState = uploadedVersion.selectedCurrentState;
-    this.updateFromData('Current-state', this.selectedCurrentState);
+    this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
     this.selectedGoals = uploadedVersion.selectedGoals;
     this.changeGoals();
     this.selectedClinicalFocus = uploadedVersion.selectedClinicalFocus;
@@ -572,6 +573,21 @@ export class AppComponent implements OnInit{
     this.http.get('assets/examples/'+filename).subscribe(data => {
       this.updateAllFieldsFromData(data);
      });
+  }
+
+  savePdf() {
+    let data = document.getElementById('roadmap-preview');
+    html2canvas(data as any).then(canvas => {
+        var imgWidth = 210;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        const contentDataURL = canvas.toDataURL('image/png');
+        let pdfData = new jsPDF('p', 'mm', 'a4');
+        var position = 0;
+        pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        pdfData.save(`MyPdf.pdf`);
+    });
   }
 
 }

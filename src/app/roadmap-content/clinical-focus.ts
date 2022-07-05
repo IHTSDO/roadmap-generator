@@ -1,24 +1,21 @@
-export const clinicalFocusIntro = `The strategy will be focused on the following clinical areas:`;
+export const clinicalFocusIntro = `This SNOMED CT roadmap will focus on the following clinical priority areas:`;
 export const clinicalFocus = [
     {
-    opSelector: "Specific healthcare sectors",
+    opSelector: "Healthcare sectors",
     text: `<p><mark>
-    [PLACEHOLDER]
-    Hospitals, GPs, Pharmacy, Clinical registries, Clinical research
+    [ADD priority healthcare sectors here, e.g. hospitals, general practice, pharmacy, clinical registries, clinical research]]
     </mark></p>`
     },
     {
-    opSelector: "Specialty areas",
+    opSelector: "Clinical specialties",
     text: `<p><mark>
-    [PLACEHOLDER]
-    Cardiology, ED, etc
+    [ADD priority clinical specialties here, e.g. cardiology, emergency department]
     </mark></p>`
     },
     {
     opSelector: "Clinical goals",
     text: `<p><mark>
-    [PLACEHOLDER]
-    Improve stroke management, Reduce deaths from diabetes, Increased continuity of care for cancer patients etc.
+    [ADD priority clinical goals here, e.g. improve stroke management, reduce deaths from diabetes, increase continuity of care for cancer patients]
     </mark></p>`
     }
 ];

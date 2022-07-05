@@ -1,9 +1,17 @@
 export const projects = [
     {
-        opSelector: "Placeholder",
-        text: `<mark>[PLACEHOLDER]<br>
-        Define use cases and location/scope of initial implementation focus. e.g. Hospital X, Clinic Y,
-        Clinical register Z, Region W, National EHR, National HIE infrastructure etc<br>
-        [PLACEHOLDER]</mark>`
+        opSelector: "Customized text",
+        text: `<mark>
+        <p>[INSTRUCTIONS - Please customize the following sample text, or replace it with your own]</P>
+        <p>To deliver on our eHealth strategy for <span class='country'>COUNTRY</span>, SNOMED CT will be implemented 
+        in the following eHealth projects: </p>
+        <ul>
+            <li>[ADD project name(s), use case(s), location(s) and scope(s) of initial implementation focus, e.g. 
+                emergency department system upgrade at hospital X]</li>
+            <li>[ADD national projects if relevant, e.g. national EHR, national clinical registry, national HIE 
+                infrastructure]</li>
+        </ul>
+        <p>[END INSTRUCTIONS]</p>
+        </mark>`
     }
 ];
