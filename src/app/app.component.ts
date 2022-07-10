@@ -114,11 +114,11 @@ export class AppComponent implements OnInit{
   changeVision() {
     setTimeout(() => {
       if (this.selectedVisions.length > 0) {
-        let visionsText = `<p>${this.visionIntro}</p><br>`;
+        let visionsText = `<p>${this.visionIntro}</p><ul>`;
         this.selectedVisions.forEach((vision: any) => {
-          visionsText = visionsText + `${vision.text}<br>`;
+          visionsText = visionsText + `${vision.text}`;
         })
-        this.replaceSection('Vision', `<h2>Vision</h2><ul>${visionsText}<ul>`);
+        this.replaceSection('Vision', `<h2>Vision</h2>${visionsText}<ul>`);
         this.nameChanged()
       } else {
         this.replaceSection('Vision', '');
@@ -203,6 +203,23 @@ export class AppComponent implements OnInit{
     }, 100);
   }
 
+  addAllGroup(groupToAdd: string) {
+    let stepsToAdd:any[] = [];
+    steps.forEach(group => {
+      if (group.group ==groupToAdd) {
+        group.options.forEach(option => {
+          const matches = this.selectedSteps.filter(step => step.step.opSelector == option.opSelector);
+          if (matches.length == 0) {
+            stepsToAdd.push({group: group.group, step: option, date: ''});
+          }
+        });
+      }
+    });
+    const mergeResult = [...this.selectedSteps, ...stepsToAdd];
+    this.selectedSteps = mergeResult;
+    this.changeSteps();
+  }
+
   change(section: string, event: any) {
     if(event.isUserInput) {
       this.updateFromData(section, event.source.value);
@@ -214,7 +231,8 @@ export class AppComponent implements OnInit{
       this.replaceSection(section, '');
     } else {
       // remove paragraph <p>? console.log(content.text)
-      this.replaceSection(section, `<h2>${section.replace('-',' ')}</h2><p>${content.text}</p>`);
+      var re = new RegExp('-', 'g');
+      this.replaceSection(section, `<h2>${section.replace(re,' ')}</h2><p>${content.text}</p>`);
       this.nameChanged()
     }
   }
