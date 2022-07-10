@@ -1,8 +1,8 @@
 export const currentStates = [
     {
       opSelector: "Customized text",
-      text: `<mark>
-      <p>[INSTRUCTIONS - Please customize the following sample text, or replace it with your own]</p>
+      text: `
+      <p><mark>[INSTRUCTIONS - Please customize the following sample text, or replace it with your own]</mark></p>
       <p>The current eHealth landscape in <span class='country'>COUNTRY</span> can be summarized as follows:</p>
       <ul>
         <li>[N] healthcare regions, each responsible for [add regional healthcare responsibilities]</li>
@@ -16,6 +16,6 @@ export const currentStates = [
         <li>National legislation in place includes [add text to describe any relevant national or regional legislation in place that may be relevant]</li>
         <li>Current challenges in  the eHealth sector include: [add text to describe any relevant challenges or barriers to achieving vision above]</li>
       </ul>
-      <p>[END INSTRUCTIONS]</p></mark>`
+      <p><mark>[END INSTRUCTIONS]</mark></p>`
     }
 ];

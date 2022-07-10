@@ -26,8 +26,13 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
       step.milestones.push({ name: 'New milestone', text: '', date: new Date() })
     }
     removeMilestone(step: any, milestoneName:any) {
-      step.milestones = step.milestones.filter(function(el: any) {
-        return --el["name"] == milestoneName;
-      });
+      console.log( step.milestones, milestoneName)
+      step.milestones.splice(step.milestones.findIndex(function(i: any){
+        return i.name === milestoneName;
+      }), 1);
+      console.log( step.milestones)
+      // step.milestones = step.milestones.filter(function(el: any) {
+      //   return --el["name"] == milestoneName;
+      // });
     }
   }

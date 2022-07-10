@@ -18,7 +18,7 @@ export const closings = [
         for clinical analytics, population health management and clinical research.</p>
         <p>SNOMED CT will be implemented at different levels of the health system, including its integration with clinical records, 
         national registries, analytics and reporting. It will be introduced as a requirement in data exchange models and 
-        implementation guides. This should be a coordinated effort that includes the clinicians, software developers, public health 
+        implementation guides. This will be a coordinated effort that includes the clinicians, software developers, public health 
         officials and technical interoperability architects, among others.</p>
         <p>Through the implementation of SNOMED CT following this roadmap, <span class='country'>COUNTRY</span> can achieve 
         these benefits and deliver on our eHealth goals.</p>`

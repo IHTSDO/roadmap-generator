@@ -23,6 +23,7 @@ export class GanttChartComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('changes for gantt')
     setTimeout(() => {
       this.updateGantt();
     }, 100);
@@ -54,7 +55,11 @@ export class GanttChartComponent implements OnInit {
   }
 
   dateToTimestamp(datep: any) {
-    return (Math.floor(datep.getTime() / 1000));
+    if (!datep) {
+      return 0;
+    } else {
+      return (Math.floor(datep.getTime() / 1000));
+    }
   }
 
   print(name: string) {

@@ -5,6 +5,11 @@
   <img src="https://www.snomed.org/SNOMED/media/SNOMED/other/brand-mark.png" height="60px">
   <span id="title">SNOMED CT Implementation Roadmap Generator</span>
   <span class="example-spacer"></span>
+  <button mat-raised-button color="accent"
+    [disabled]="selectedSteps.length == 0" (click)="openStepsDialog()">
+    <mat-icon>edit</mat-icon>&nbsp;
+    EDIT TIMELINE
+  </button>
   <button mat-raised-button color="accent" [matMenuTriggerFor]="actionsMenu">
     <mat-icon>settings</mat-icon>&nbsp;
     ACTIONS
@@ -69,10 +74,10 @@
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Current eHealth landscape</mat-label>
         <mat-select [(ngModel)]="selectedCurrentState" [compareWith]="compareOptions">
-          <mat-option value="" (onSelectionChange)="change('Current-state', $event)">
+          <mat-option value="" (onSelectionChange)="change('Current-eHealth-landscape', $event)">
             Not applicable
           </mat-option>
-          <mat-option *ngFor="let currentStateSource of currentStates" [value]="currentStateSource" (onSelectionChange)="change('Current-state', $event)">
+          <mat-option *ngFor="let currentStateSource of currentStates" [value]="currentStateSource" (onSelectionChange)="change('Current-eHealth-landscape', $event)">
             {{currentStateSource.opSelector}}
           </mat-option>
         </mat-select>
@@ -106,6 +111,7 @@
         <mat-label>Roadmap steps</mat-label>
         <mat-select [(ngModel)]="selectedSteps" name="selectedSteps" [compareWith]="compareOptionsSteps" multiple>
           <mat-optgroup *ngFor="let group of steps" [label]="group.group">
+            <button mat-flat-button (click)="addAllGroup(group.group)">Add all</button>
             <mat-option *ngFor="let step of group.options" [value]="{ group: group.group, step: step, date: '' }" (onSelectionChange)="changeSteps()">
               {{step.opSelector}}
             </mat-option>

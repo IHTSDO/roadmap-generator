@@ -1,8 +1,8 @@
 export const projects = [
     {
         opSelector: "Customized text",
-        text: `<mark>
-        <p>[INSTRUCTIONS - Please customize the following sample text, or replace it with your own]</P>
+        text: `
+        <p><mark>[INSTRUCTIONS - Please customize the following sample text, or replace it with your own]</mark></P>
         <p>To deliver on our eHealth strategy for <span class='country'>COUNTRY</span>, SNOMED CT will be implemented 
         in the following eHealth projects: </p>
         <ul>
@@ -11,7 +11,7 @@ export const projects = [
             <li>[ADD national projects if relevant, e.g. national EHR, national clinical registry, national HIE 
                 infrastructure]</li>
         </ul>
-        <p>[END INSTRUCTIONS]</p>
-        </mark>`
+        <p><mark>[END INSTRUCTIONS]</mark></p>
+        `
     }
 ];
