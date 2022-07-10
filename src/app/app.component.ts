@@ -267,7 +267,7 @@ export class AppComponent implements OnInit{
       var elements = document.querySelectorAll(`.${section}`);
       anime({
         targets: elements,
-        backgroundColor: ['#f0fc03','#fff'],
+        backgroundColor: ['#f0fc03','transparent'],
         duration: 8000
       });
     }, 100)
