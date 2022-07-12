@@ -5,19 +5,19 @@ export const steps = [
       options: [
         {
           opSelector: "Data Models",
-          text: `<p>Identify information model standards for recording, exchanging, integrating and analysing clinical data.
-          This step involves the following tasks:</p>
+          text: `<p>Define information model standards for recording, exchanging, integrating and analysing clinical data.
+          This step may involve the following tasks:</p>
           <ul>
             <li>Identify data model standards to be used for each relevant clinical data functions (e.g. HL7 FHIR for 
               data exchange).</li>
-            <li>Specify minimum datasets for common clinical use cases (e.g. emergency department minimum dataset).</li>
+            <li>Specify common datasets for common clinical use cases (e.g. emergency department minimum dataset).</li>
             <li>Create policy to establish the use of these data model standards across the healthcare sector.</li>
           </ul>`
         },
         {
           opSelector: "Code Systems",
           text: `<p>Establish SNOMED CT as the primary reference terminology in <span class='country'>COUNTRY</span>. 
-          This step involves the following tasks:</p>
+          This step may involve the following tasks:</p>
           <ul>
             <li>Create policy or legislation to establish SNOMED CT as the primary reference terminology both nationally and 
             in specific healthcare sectors.</li>
@@ -29,7 +29,7 @@ export const steps = [
         },
         {
           opSelector: "Terminology Binding",
-          text: `<p>Bind information models to SNOMED CT and other relevant code systems. This step involves the following tasks:</p>
+          text: `<p>Bind information models to SNOMED CT and other relevant code systems. This step may involve the following tasks:</p>
           <ul>
             <li>Identify the code system to be used for each coded data element in each information model.</li>
             <li>Define the value set that may be used to populate each coded data element, either using a computable query (intensionally) 
@@ -42,40 +42,66 @@ export const steps = [
         {
           opSelector: "Translation",
           text: `<p>Translate SNOMED CT into the local language dialect(s) spoken in <span class='country'>COUNTRY</span>.
-          This step involves the following tasks:</p>
+          This step may involve the following tasks:</p>
           <ul>
             <li>Prioritise the SNOMED CT subhierarchies and value sets requiring translation, based on implementation use cases
-            and predicted frequency of use (frequency data can be gathered from experience in other countries).</li>
-            <li>Define the translation process, including appropriate tooling and review processes.</li>
-            <li>Identify suitable translation resources, with appropriate language and terminology skills (note: SNOMED CT training 
-              should be offered to translators with no prior SNOMED CT experience).</li>
-            <li>Perform translation and review process based on identified priorities.</li>
+            and predicted frequency of use (which may be gathered from prior experience in other countries).</li>
+            <li>Design the translation process, including appropriate tooling, review and ongoing maintenance.</li>
+            <li>Identify suitable translation resources, with appropriate language and terminology skills</li>
+            <li> Offer SNOMED CT training to translators to ensure they have the appropriate level of SNOMED CT understanding.</li>
+            <li>Perform translation and review process based on the identified priorities.</li>
             <li>Distribute and/or deploy translations (e.g. via a terminology server or RF2 files).</li>
+            <li>Maintain the translations and republish at agreed intervals (ideally aligning with updates to the terminology)</li>
           </ul>`
         },
         {
           opSelector: "Maps",
-          text: `<p>Create an maintain maps between SNOMED CT  and classifications and terminologies 
-          used in <span class='country'>COUNTRY</span>. As SNOMED CT will be the primary 
-          data entry vocabulary it is necessary to make available maps from SNOMED CT to other classifications, like ICD-10, in 
-          order to support public health reporting use cases.</p>
-          <p>During the implementation the need for new maps will be identified, and maps will be developed also for reimbursement 
-          vocabularies, local interface terminologies, and others.</p>`
+          text: `<p>Create and maintain maps between SNOMED CT  and other code systems used in <span class='country'>COUNTRY</span>, 
+          to support use cases, such as data integration, analysis, reimbursement and public health reporting. 
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify other code systems either currently used or needed in the future in <span class='country'>COUNTRY</span>. </li>
+            <li>Prioritise the code systems requiring mapping to/from SNOMED CT, considering the priority projects and use cases. </li>
+            <li>Design the mapping process, including appropriate tooling, review and ongoing maintenance. </li>
+            <li>Identify suitable mapping resources, with an appropriate level of understanding of both SNOMED CT and the other code system. </li>
+            <li>Perform the map and review processes based on the identified priorities.</li>
+            <li>Distribute and/or deploy the maps (e.g. via a terminology server or RF2 files).</li>
+            <li>Maintain the maps and republish at agreed intervals (e.g. to align with updates to the terminology)</li>
+          </ul>`
         },
         {
           opSelector: "National SNOMED CT extension",
-          text: `<p>Create and maintain the <span class='country'>COUNTRY</span> Edition of SNOMED CT. Creating and 
+          text: `<p>Create and maintain the <span class='country'>COUNTRY</span> Edition of SNOMED CT. 
+          Creating and 
           maintaining the extension requires establishing an authoring team, that will be in charge of creating new concepts, 
           updating descriptions to match local need, creating reference sets and maps.</p>
           <p>The <span class='country'>COUNTRY</span> Edition of SNOMED CT will be distributed using standard file packages, ready for 
-          use on any compatible Terminology Server.</p>`
+          use on any compatible Terminology Server.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Establish an authoring team and provide SNOMED CT authoring training (e.g. using SNOMED International's authoring courses).</li>
+            <li>Ensure authors are certified in SNOMED CT authoring with SNOMED International.</li>
+            <li>Select and deploy a SNOMED CT authoring platform and a content request system for submission of new content requests.</li>
+            <li>Estalish editorial guidelines, authoring/release processes, roles and responsibilities.</li>
+            <li>Validate, prepare and publish RF2 package for the <span class='country'>COUNTRY</span> Edition.</li>
+            <li>Distribute the extension edition (e.g. via a terminology server or RF2 files), ready to deploy on any RF2-enabled terminology server.</li>
+            <li>Maintain and republish the extension edition, following and agreed schedule.</li>
+          </ul>`
         },
         {
           opSelector: "Quality Framework",
           text: `<p>Implement a Quality Framework to guide the development of all the terminology artifacts required for
           the SNOMED CT implementation, including new concepts, translations, reference sets, maps, etc.</p>
-          <p>Only through continuous improvement processes and indicators it's possible to ensure the best quality for the terminology 
-          products that used in clinical care.</p>`
+          <p>Only through continuous improvement processes and indicators is it possible to ensure the best quality for the terminology 
+          products that used in clinical care.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify all the terminology artifacts being developed.</li>
+            <li>Develop quality processes and measures for each artifact.</li>
+            <li>Identify appropriate governance bodies to oversee important clinical and technical decisions relating to the terminology artifacts.</li>
+            <li>Implement quality processes and measures (automating as much as possible)</li>
+            </li>Review quality framework, at regular intervals, for improvement opportunities.</li>
+          </ul>`
         }
       ]
     },
@@ -84,46 +110,77 @@ export const steps = [
       options: [
         {
           opSelector: "Shared terminology server",
-          text: `<p>Deploy a National Terminology Server for integration with clinical tools. In order to facilitate the 
-          adoption process, developers in charge of integrating SNOMED CT will have access to a shared Terminology Server 
-          configured with the latest terminology artifacts. The server will be accessible through the HL7 FHIR Terminology APIs 
-          (CodeSystems, ValueSets, ConceptMaps), and will support the use of Expression Constraint Language queries (ECL).</p>
-          <p>Separate production and test instances will be available to support the development process.</p>`
+          text: `<p>Deploy a National Terminology Server configured with the latest terminology artifacts. This national 
+          terminology server will support a set of agreed use cases, e.g. terminology distribution, integration with 
+          clinical systems, data analytics, message validation, vendor community education etc.</p>
+          </p>The national terminology server will be accessible through the HL7 FHIR terminology services APIs, and will provide full support
+          for SNOMED CT-specific features, including the SNOMED ECL queries (Expression Constraint Language), appropriate dialect preferences, 
+          and national extension content. Separate terminology server instances may be required to support different use cases 
+          (e.g. a production instance, and training/test instance)
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Define the key use cases and requirements for a national terminology server.</li>
+            <li>Select terminology server software that meets your requirements. 
+            (Note: Ensure that all required SNOMED CT features are available, including support for ECL queries.)</li>
+            <li>Ensure technical resources are in place to deploy, maintain, upload new content and ensure the availability of the terminology services.</li>
+            <li>Deploy and maintain (both software and content) terminology services</li>
+            <li>Communicate, document and promote the terminology services</li>
+            <li>Support, guide and educate users of the terminology services.</li>
+          </ul>`
         },
         {
           opSelector: "Shared EHR and clinical registries",
-          text: `<p>Add support for SNOMED CT to the National EHR infrastructure in <span class='country'>COUNTRY</span> in all 
-          data entry interfaces. The data collection forms in all National Registries will be gradually adapted for 
-          SNOMED CT as well, benefiting from data exchange from other clinical platforms, and with the possibility of outputting 
-          datasets encoded with legacy classifications through the use of mapping.</p>`
+          text: `<p>Add SNOMED CT coded data to all shared (e.g. national, regional) Electronic Health Records (EHRs) and clinical registries. 
+          The data collection forms for all national registries will be adapted for SNOMED CT, enabling data integration from other
+          clinical system that either use SNOMED CT natively, or can map legacy codes to SNOMED CT.
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify and prioritise shared EHR systems and clinical registries for SNOMED CT adoption.</li>
+            <li>Bind SNOMED CT to appropriate data elements in the relevant information models, developing suitable value sets.</li>
+            <li>Implement these SNOMED CT terminology bindings in the storage, user interfaces, and data analytics components of the systems.</li>
+            <li>Maintain SNOMED CT value sets, bindings, and other implementation artifacts</li>
+          </ul>`
         },
         {
           opSelector: "National interoperability platform",
           text: `<p>Implement a National Interoperability Platform in <span class='country'>COUNTRY</span> based on the common data 
-          model, including the necessary the terminology bindings to ensure the communication of detailed clinical information 
-          encoded with SNOMED CT.</p>
-          <p>In addition to clinical records storage and exchange services, SNOMED CT will be introduced in a set of ancillary services 
-          that are required to support full interoperability, including a validation service that tests conformance with common model 
-          structures and terminology bindings, a patient identification service, a national provider identification service, etc.</p>`
+          model for exchange and associated terminology bindings. This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify national services required, e.g. clinical records storage, exchange service, message validation service, 
+              patient identification service, national provider identification service </li>
+            <li>Design, develop, deploy and maintain each service in the national interoperability platform, using one or more 
+            SNOMED-enabled terminology servers to enable the searching, mapping and validation of SNOMED CT codes. </li>
+          </ul>`
         },
         {
           opSelector: "National Release Center",
-          text: `<p>Create the SNOMED National Release Center (NRC) for <span class='country'>COUNTRY</span>. 
-          The responsibilities of the NRC include receiving the International Release of SNOMED CT from SNOMED International, making it 
-          available to licensees in the Member country, and promoting and supporting adoption and deployment of SNOMED CT in 
-          <span class='country'>COUNTRY</span>.</p>
-          <p>The NRC is the primary contact point for both national Affiliates and SNOMED International, the NRC plays a central role in 
-          effective and efficient collaboration with the various partners.<br>
-          The NRC will address national implementation requirements, with training strategy based on the adoption and customization of 
-          training resources published by SNOMED International.</p>`
+          text: `<p>Establish the SNOMED National Release Center (NRC) for <span class='country'>COUNTRY</span>. 
+          The primary responsibilities of the NRC include making the SNOMED CT international release available
+          to licensees in <span class='country'>COUNTRY</span>, and promoting the adoption of SNOMED CT.
+          The NRC is the primary contact point for both national Affiliates and SNOMED International. The NRC also plays 
+          a central role in effective and efficient collaboration with the various stakeholders and partners.<br>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Select an organisation to serve as <span class='country'>COUNTRY</span>'s NRC.</li>
+            <li>Define the functions and responsibilities of the NRC.</li>
+            <li>Recruit appropriate resources to the NRC and provide staff with SNOMED CT training</li>
+            <li>Aquire appropriate tooling to support NRC's functions, e.g. terminology distribution service, authoring platform.</li>
+            <li>Run the NRC in a sustainable way, promoting and supporting the adoption and implementation of SNOMED CT.</li>
+          </ul>`
         },
         {
           opSelector: "National education and training services",
-          text: `<p>Implement a National education and training strategy. The strategy will have content tailored to 
-          different audiences, including clinicians, software developers, implementers, etc. The training materials will be based on 
-          the International training materials, and will be adapted and expanded according to local needs.</p>
-          <p>The process will include on-line and in-person training sessions and will implement a certification process for validating 
-          the skills acquired by the students.</p>`
+          text: `<p>Implement a National education and training programme. 
+              This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify the target audiences (e.g. clinicians, software developers, implementers) and learning objectives for 
+              each target audience.</li>
+            <li>Identify suitable education material from SNOMED International to promote and/or customize to a local audience.</li>
+            <li>Engage with a suitable education delivery provider (eg university) to host localised SNOMED CT online training.</li>
+            <li>Consider other modes of training, including in person workshops, vendor days and/or showcase events.</li>
+            <li>Implements education plans, including running workshops and deploying customized online training.</li>
+            <li>Participate in SNOMED International's ELearning Advisory Group to share education experiences with other Members.</li>
+          </ul>`
         }
       ]
     },
@@ -131,33 +188,45 @@ export const steps = [
       group: "Promote Adoption",
       options: [
         {
-          opSelector: "Develop national strategy for promoting adoption",
-          text: `<p>Implement a strategy to identify the barriers and facilitators for the adoption of SNOMED CT and to execute 
-          of actions to promote adoption based on this understanding. The adoption 
-          strategy defines a set of activities aimed to reduce the barriers of adoption and to introduce a set of incentives to promote 
-          the integration of SNOMED CT to clinical health information systems.</p>
-          <p>It will be necessary to identify any legal or policy requirements that conflict with the adoption of a standard terminology, and
-          to introduce the necessary changes. The availability of a robust national infrastructure, including a national terminology server 
-          can be a way to avoid technological entry barriers for systems. Training is always a key element ot promote adoption and it should be
-          accessible at no cost and using mechanisms that would allow participation even from remote locations.</p>
-          <p>Financial incentives have proven to be effective in promoting adoption, balancing some of the costs of the adaptations require to 
-          introduce support for SNOMED CT in existing software systems.</p>
-          <p>Vendor certification is an incentive for companies that want to introduce new features in their systems and want to promote 
-          the support of SNOMED CT as one of the arguments for their marketing strategy.</p>`
+          opSelector: "Develop a national strategy for promoting SNOMED CT adoption",
+          text: `<p>Implement a strategy to identify the barriers and enablers for the adoption of SNOMED CT and to execute 
+          actions to promote adoption based on this understanding. This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify the barriers for SNOMED CT adoption in <span class='country'>COUNTRY</span>, including legislation,  
+              policy, lack of availability of robust national infrastructure, knowledge, skills and commercial interests.</li>
+            <li>Identify the enablers for SNOMED CT adoption in <span class='country'>COUNTRY</span>. including 
+              local champions of SNOMED CT, legislation, policy, availability of national infrastructure, knowledge, skills, 
+              education providers, and commercial or financial interests.</li>
+            <li>Implement actions to reduce barriers and increase enablers of SNOMED CT adoption in clinical health information 
+              systems, e.g. legislation and policy changes, development of national infrastructure, provision of financial incentives.</li>
+          </ul>`
         },
         {
           opSelector: "Onboard influencers / champions",
-          text: `<p>Contact early adopters to generate examples of successful implementations. During the implementation 
-          process champions or influencers would be identified, selecting prestigious actors that have a clear view of the benefits of 
-          SNOMED CT. The implementer team will work with these champions to produce communication pieces, webinars, and exemplar implementations 
-          for training material.</p>`
+          text: `<p>Engage with champions and influencers from early adoptors of SNOMED CT.
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Contact early adoptors to find examples of successful SNOMED CT implementations.</li>
+            <li>Identify SNOMED CT champions or influencers from early adoptors (or other relevant stakeholders), who have a clear 
+              view of the benefits of SNOMED CT.</li>
+            <li>Provide any necessary training, support and/or information for the selected champions.</li>
+            <li>Engage with the champions to produce communication pieces, webinars, and exemplar implemention examples 
+              for training.</li>
+          </ul>`
         },
         {
-          opSelector: "Identify quick wins / low hanging fruit projects",
+          opSelector: "Identify quick wins and low hanging fruit projects",
           text: `<p>Identify projects that are good candidates for short and effective implementations. This strategy will prioritize 
-          small projects with a clear goal and benefit from implementing SNOMED CT, and with proactive, skilled, and flexible teams.</p>
-          <p>Dedicated implementation guidance from the NRC and SNOMED International will be key to accelerate the implementation process and 
-          produce compelling results early.</p>`
+          small projects with a clear goal and benefit from implementing SNOMED CT, and with proactive, skilled, and flexible teams. Dedicated implementation guidance from the NRC and SNOMED International will be key to accelerate the implementation process and 
+          produce compelling results early.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify projects that may be good candidates for achieving benefits quickly and/or with low effort.</li>
+            <li>Work with project stakeholders to agree on goals for use of SNOMED CT within the selected projects.</li>
+            <li>Design and architect how SNOMED CT will be implemented in the projects and develop SNOMED CT implementation guidance.</li>
+            <li>Implement project with SNOMED CT and measure the benefits where possible.</li>
+            <li>Share outcomes with stakeholders and future projects, including benefits and lessons learned.</li>
+          </ul>`
         }
       ]
     },
@@ -168,7 +237,15 @@ export const steps = [
           opSelector: "Engage financial sponsors",
           text: `<p>Produce documentation and guidance on how to estimate the value proposition of the implementation of SNOMED CT and how to 
           calculate the return of investment (ROI). Promote the benefits of SNOMED CT in funding organizations like multi-lateral development 
-          banks, philanthropic donors, etc.</p>`
+          banks, philanthropic donors, etc.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Review the value proposition work developed by SNOMED International at https://www.value.snomed.org/.</li>
+            <li>Identify the key national eHealth goals, projects, clinical focus areas, and potential SNOMED CT benefits that align with these.</li>
+            <li>Develop the value proposition for using SNOMED CT in <span class='country'>COUNTRY</span>, building upon
+          the above resources.</li>
+            <li>Identify key financial sponsors and communicate the SNOMED CT value proposition (e.g. report, presentation, meetings)</li>
+          </ul>`
         },
         {
           opSelector: "Engage clinicians",
@@ -177,27 +254,61 @@ export const steps = [
           specialists, etc. An important aspect of the training is to assure that with effective implementations SNOMED CT is easy to use, 
           requires no special training and can be used even in busy care workflows.</p>
           <p>Clinicians can be great contributors to the implementation processes, facilitating the identification of barriers for adoption and 
-          good practices.</p>`
+          good practices.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify key clinician groups and prioritise - e.g. via healthcare facilities, clinical colleges, specialty groups.</li>
+            <li>Identify key benefits of SNOMED CT for each clinical group and determine communication objectives.</li>
+            <li>Share SNOMED International's clinician focused education - see https://courses.ihtsdotools.org.</li>
+            <li>Develop additional materials for events, education and information sharing</li>
+            <li>Arrange online training, workshops, demonstrations, presentations and other activities to engage with clinicians.</li>
+          </ul>`
         },
         {
           opSelector: "Engage software specialists",
           text: `<p>Establish a community of software specialists, backed in forums or social networks, with the goal of accelerating the 
           onboarding of new developers and ensure the best possible quality of implementations.</p>
           <p>Software specialists are a fundamental actor in the integration of SNOMED CT in clinical tools. They require training tailored 
-          to their needs, including access to reference implementations, code examples, and open source components.</p>`
+          to their needs, including access to reference implementations, code examples, and open source components.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify key vendors, software developers and relevant professional bodies in <span class='country'>COUNTRY</span>.</li>
+            <li>Identify key benefits of SNOMED CT for software specialists in <span class='country'>COUNTRY</span>.</li> 
+          including the Terminology Services Course and certification.</li>
+            <li>Share software developer education material from SNOMED International, including the 
+              Terminology Services Course and certification - see https://courses.ihtsdotools.org.</li>
+            <li>Develop new local training materials for software specialists where required.</li>
+            <li>Establish forums and social networks to engage with software specialists.</li>
+          </ul>`
         },
         {
           opSelector: "Engage with the research community",
           text: `<p>Develop training material and organize workshops for interactive demonstrations of SNOMED CT capabilities for 
           analytics and research.</p>
           <p>The research community needs to have access to information on the benefits of using SNOMED CT encoded datasets, and to the 
-          tools and techniques used for data analytics.</p>`
+          tools and techniques used for data analytics.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify key research groups - e.g. via universities, commercial organisations, and professional bodies.</li>
+            <li>Identify key benefits of SNOMED CT for the research community in <span class='country'>COUNTRY</span>.</li>
+            <li>Share data analytics education material from SNOMED International with research community 
+          - see https://courses.ihtsdotools.org.</li>
+            <li>Arrange workshops and other forums to showcase SNOMED CT use for analytics and research.</li>
+          </ul>`
         },
         {
           opSelector: "Engage other stakeholders",
           text: `<p>Define a strategy to engage other groups that have access to SNOMED CT or are involved in some aspect of the data 
           management and analysis, like patients, healthcare  administrators, public health managers, government/policy makers, 
-          system procurers, etc.</p>`
+          system procurers, etc.</p>
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify other key stakeholder groups.</li>
+            <li>Identify key benefits of SNOMED CT for the other stakeholder groups.</li>
+            <li>Share SNOMED CT education options offered by SNOMED International with other stakeholder groups.
+                - see https://courses.ihtsdotools.org.</li>
+            <li>Plan and implement a strategy to engage stakeholder groups, including forums, workshops, presentations etc.</li>
+          </ul>`
         }
       ]
     }
