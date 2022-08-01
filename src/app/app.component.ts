@@ -521,10 +521,43 @@ export class AppComponent implements OnInit{
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var heightLeft = imgHeight;
         const contentDataURL = canvas.toDataURL('image/png');
-        let pdfData = new jsPDF('l', 'mm', 'a4');
+        let pdfData = new jsPDF('p', 'mm', 'a4');
         var position = 0;
         pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        heightLeft -= pageHeight;
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdfData.addPage();
+          pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
         pdfData.save(`planning.pdf`);
+    });
+  }
+
+  openGanttAsPng() {
+    let data = document.getElementById('gantt');
+    html2canvas(data as any).then(canvas => {
+        var imgWidth = 210;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        const contentDataURL = canvas.toDataURL('image/png');
+        var newTab = window.open('about:blank','Gantt');
+        newTab?.document.write("<img src='" + contentDataURL + "' alt='from canvas'/>");
+    });
+  }
+
+  openTimelineAsPng() {
+    let data = document.getElementById('timeline');
+    html2canvas(data as any).then(canvas => {
+        var imgWidth = 210;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        const contentDataURL = canvas.toDataURL('image/png');
+        var newTab = window.open('about:blank','Timeline');
+        newTab?.document.write("<img src='" + contentDataURL + "' alt='from canvas'/>");
     });
   }
 

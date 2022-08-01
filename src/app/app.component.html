@@ -21,7 +21,9 @@
     <mat-divider></mat-divider>
     <button mat-menu-item (click)="downloadWord()">Export to Word</button>
     <button mat-menu-item (click)="savePdf()">Export to PDF</button>
-    <button mat-menu-item (click)="saveGanttPdf()">Export Gantt to PDF</button>
+    <button mat-menu-item (click)="saveGanttPdf()">Export Planning to PDF</button>
+    <button mat-menu-item (click)="openGanttAsPng()">Export Gantt to PNG</button>
+    <button mat-menu-item (click)="openTimelineAsPng()">Export Timeline to PNG</button>
     <mat-divider></mat-divider>
     <button mat-menu-item (click)="openTimelineDialog()">View Timeline</button>
     <button mat-menu-item (click)="openGanttDialog()">View Gantt Chart</button>
@@ -156,9 +158,14 @@
       <div [innerHTML]="roadmap | safe: 'html'" id="roadmap-preview"></div>
       <div *ngIf="selectedSteps.length > 0" id="planning">
         <h2>Roadmap planning</h2>
-        <h3>Gantt chart</h3>
-        <app-gantt-chart [roadmapStart]="roadmapStart" [roadmapEnd]="roadmapEnd" [selectedSteps]="selectedSteps"></app-gantt-chart>
-        <br><br>
+        <div id="gantt">
+          <h3>Gantt chart</h3>
+          <app-gantt-chart [roadmapStart]="roadmapStart" [roadmapEnd]="roadmapEnd" [selectedSteps]="selectedSteps"></app-gantt-chart>
+        </div>
+        <div id="timeline">
+          <h3>Timeline</h3>
+          <app-timeline-chart [data]="{ country, selectedSteps, roadmapStart, roadmapEnd }"></app-timeline-chart>
+        </div>
       </div>
       <router-outlet></router-outlet>
     </div>
