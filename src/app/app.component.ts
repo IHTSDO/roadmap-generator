@@ -21,6 +21,12 @@ import html2canvas from 'html2canvas';
 import { asBlob } from 'html-docx-js-typescript'
 import { saveAs } from 'file-saver'
 
+import * as pdfMake from "pdfmake/build/pdfmake";  
+import * as pdfFonts from "pdfmake/build/vfs_fonts";  
+declare var require: any;
+const htmlToPdfmake = require("html-to-pdfmake");
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+
 
 declare var anime: any;  
 
@@ -502,17 +508,35 @@ export class AppComponent implements OnInit{
   }
 
   savePdf() {
-    let data = document.getElementById('roadmap-preview');
+    var html = htmlToPdfmake(`<html><body>${this.roadmap}</body></html>`);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+    // let data = document.getElementById('roadmap-preview');
+    // html2canvas(data as any).then(canvas => {
+    //     var imgWidth = 210;
+    //     var pageHeight = 295;
+    //     var imgHeight = canvas.height * imgWidth / canvas.width;
+    //     var heightLeft = imgHeight;
+    //     const contentDataURL = canvas.toDataURL('image/png');
+    //     let pdfData = new jsPDF('p', 'mm', 'a4');
+    //     var position = 0;
+    //     pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+    //     pdfData.save(`roadmap.pdf`);
+    // });
+  }
+
+  saveGanttPdf() {
+    let data = document.getElementById('planning');
     html2canvas(data as any).then(canvas => {
         var imgWidth = 210;
         var pageHeight = 295;
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var heightLeft = imgHeight;
         const contentDataURL = canvas.toDataURL('image/png');
-        let pdfData = new jsPDF('p', 'mm', 'a4');
+        let pdfData = new jsPDF('l', 'mm', 'a4');
         var position = 0;
         pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-        pdfData.save(`roadmap.pdf`);
+        pdfData.save(`planning.pdf`);
     });
   }
 
