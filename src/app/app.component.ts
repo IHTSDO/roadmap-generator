@@ -18,6 +18,9 @@ import { TimelineDialog } from './timeline-dialog/timeline-dialog';
 import { HttpClient } from '@angular/common/http';
 import { jsPDF } from 'jspdf'
 import html2canvas from 'html2canvas';
+import { asBlob } from 'html-docx-js-typescript'
+import { saveAs } from 'file-saver'
+
 
 declare var anime: any;  
 
@@ -273,20 +276,6 @@ export class AppComponent implements OnInit{
     }, 100)
   }
 
-  saveToWord() {
-    this.snackBar.openFromComponent(AppSnackComponent, {
-      duration: 3000,
-    });
-    // const htmlString = `<html><body>${this.roadmap}</body></html>`;
-    // const fileBuffer = await htmlToDocx(htmlString, null, {
-    //   table: { row: { cantSplit: true } },
-    //   footer: true,
-    //   pageNumber: true,
-    // });
-  
-    // saveAs(fileBuffer, 'html-to-docx.docx');
-  }
-
   openStepsDialog(): void {
     const dialogRef = this.dialog.open(StepsDatesDialog, {
       width: '80%',
@@ -506,6 +495,27 @@ export class AppComponent implements OnInit{
     document.body.removeChild(element);
   }
 
+  downloadWord() {
+    asBlob(this.roadmap).then((data: any) => {
+      saveAs(data, 'roadmap.docx') // save as docx file
+    }) // asBlob() return Promise<Blob|Buffer>
+  }
+
+  savePdf() {
+    let data = document.getElementById('roadmap-preview');
+    html2canvas(data as any).then(canvas => {
+        var imgWidth = 210;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        const contentDataURL = canvas.toDataURL('image/png');
+        let pdfData = new jsPDF('p', 'mm', 'a4');
+        var position = 0;
+        pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        pdfData.save(`roadmap.pdf`);
+    });
+  }
+
   clear() {
     this.roadmapStart = new Date(),
     this.roadmapEnd = new Date(),
@@ -592,22 +602,6 @@ export class AppComponent implements OnInit{
       this.updateAllFieldsFromData(data);
      });
   }
-
-  savePdf() {
-    let data = document.getElementById('roadmap-preview');
-    html2canvas(data as any).then(canvas => {
-        var imgWidth = 210;
-        var pageHeight = 295;
-        var imgHeight = canvas.height * imgWidth / canvas.width;
-        var heightLeft = imgHeight;
-        const contentDataURL = canvas.toDataURL('image/png');
-        let pdfData = new jsPDF('p', 'mm', 'a4');
-        var position = 0;
-        pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-        pdfData.save(`MyPdf.pdf`);
-    });
-  }
-
 }
 
 @Component({
