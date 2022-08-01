@@ -511,18 +511,6 @@ export class AppComponent implements OnInit{
     var html = htmlToPdfmake(`<html><body>${this.roadmap}</body></html>`);
     const documentDefinition = { content: html };
     pdfMake.createPdf(documentDefinition).download(); 
-    // let data = document.getElementById('roadmap-preview');
-    // html2canvas(data as any).then(canvas => {
-    //     var imgWidth = 210;
-    //     var pageHeight = 295;
-    //     var imgHeight = canvas.height * imgWidth / canvas.width;
-    //     var heightLeft = imgHeight;
-    //     const contentDataURL = canvas.toDataURL('image/png');
-    //     let pdfData = new jsPDF('p', 'mm', 'a4');
-    //     var position = 0;
-    //     pdfData.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-    //     pdfData.save(`roadmap.pdf`);
-    // });
   }
 
   saveGanttPdf() {

@@ -1,22 +1,6 @@
 <h1 mat-dialog-title>{{data.country}}: SNOMED CT Implementation Roadmap</h1>
 <div mat-dialog-content>
-  <mzd-timeline>
-    <mzd-timeline-content [border]="true">
-      <mzd-icon><fa-icon [icon]="faFlagCheckered" style="color: chocolate;"></fa-icon></mzd-icon>
-      {{data.roadmapStart | date:'mediumDate'}}: Roadmap starts!
-    </mzd-timeline-content>
-    <mzd-timeline-content *ngFor="let step of data.selectedSteps" [border]="true">
-      <mzd-icon><fa-icon [icon]="faList" style="color: chocolate;" *ngIf="step.group == 'Standards and Artifacts'"></fa-icon></mzd-icon>
-      <mzd-icon><fa-icon [icon]="faNetworkWired" style="color: chocolate;" *ngIf="step.group == 'Infrastructure'"></fa-icon></mzd-icon>
-      <mzd-icon><fa-icon [icon]="faGraduationCap" style="color: chocolate;" *ngIf="step.group == 'Promote Adoption'"></fa-icon></mzd-icon>
-      <mzd-icon><fa-icon [icon]="faUsers" style="color: chocolate;" *ngIf="step.group == 'Capacity Building'"></fa-icon></mzd-icon>
-      {{step.dateEnd | date:'mediumDate'}}: {{step.step.opSelector}}
-    </mzd-timeline-content>
-    <mzd-timeline-content [border]="true">
-      <mzd-icon><fa-icon [icon]="faCheck" style="color: chocolate;"></fa-icon></mzd-icon>
-      {{data.roadmapEnd | date:'mediumDate'}}: Roadmap ends!
-    </mzd-timeline-content>
-  </mzd-timeline>
+  <app-timeline-chart [data]="data"></app-timeline-chart>
 </div>
 <div mat-dialog-actions>
   <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Close</button>

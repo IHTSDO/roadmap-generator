@@ -34,6 +34,7 @@ import { StepsDatesDialog } from './steps-dates-dialog/steps-dates-dialog';
 import { GanttDialog } from './gantt-dialog/gantt-dialog';
 import { TimelineDialog } from './timeline-dialog/timeline-dialog';
 import { SafePipe } from './safe.pipe';
+import { TimelineChartComponent } from './timeline-chart/timeline-chart.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SafePipe } from './safe.pipe';
     GanttChartComponent,
     EditorSingleDialogComponent,
     EditorListDialogComponent,
-    SafePipe
+    SafePipe,
+    TimelineChartComponent
   ],
   imports: [
     BrowserModule,
