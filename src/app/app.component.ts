@@ -510,7 +510,7 @@ export class AppComponent implements OnInit{
   savePdf() {
     var html = htmlToPdfmake(`<html><body>${this.roadmap}</body></html>`);
     const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).download(); 
+    pdfMake.createPdf(documentDefinition).download('roadmap.pdf'); 
   }
 
   saveGanttPdf() {

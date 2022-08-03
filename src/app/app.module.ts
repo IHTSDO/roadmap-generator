@@ -22,6 +22,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { MzdTimelineModule } from 'ngx-mzd-timeline';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -73,7 +74,8 @@ import { TimelineChartComponent } from './timeline-chart/timeline-chart.componen
     CKEditorModule,
     HttpClientModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    FlexLayoutModule
   ],
   providers: [
     {

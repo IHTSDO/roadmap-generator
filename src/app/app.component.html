@@ -5,30 +5,8 @@
   <img src="https://www.snomed.org/SNOMED/media/SNOMED/other/brand-mark.png" height="60px">
   <span id="title">SNOMED CT Implementation Roadmap Generator</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button color="accent"
-    [disabled]="selectedSteps.length == 0" (click)="openStepsDialog()">
-    <mat-icon>edit</mat-icon>&nbsp;
-    EDIT TIMELINE
-  </button>
-  <button mat-raised-button color="accent" [matMenuTriggerFor]="actionsMenu">
-    <mat-icon>settings</mat-icon>&nbsp;
-    ACTIONS
-  </button>
-  <mat-menu #actionsMenu="matMenu">
-    <button mat-menu-item (click)="export()">Save Roadmap</button>
-    <button mat-menu-item (click)="fileInput.click()">Load Roadmap</button>
-    <button mat-menu-item (click)="clear()">Clear Roadmap</button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item (click)="downloadWord()">Export to Word</button>
-    <button mat-menu-item (click)="savePdf()">Export to PDF</button>
-    <button mat-menu-item (click)="saveGanttPdf()">Export Planning to PDF</button>
-    <button mat-menu-item (click)="openGanttAsPng()">Export Gantt to PNG</button>
-    <button mat-menu-item (click)="openTimelineAsPng()">Export Timeline to PNG</button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item (click)="openTimelineDialog()">View Timeline</button>
-    <button mat-menu-item (click)="openGanttDialog()">View Gantt Chart</button>
-  </mat-menu> <button mat-raised-button color="accent" [matMenuTriggerFor]="examplesMenu">
-    <mat-icon>cloud</mat-icon>&nbsp;
+  <button mat-raised-button color="accent" [matMenuTriggerFor]="examplesMenu">
+    <mat-icon>highlight</mat-icon>&nbsp;
     EXAMPLES
   </button>
   <input hidden (change)="uploadFile($event)" #fileInput type="file" id="file">
@@ -154,17 +132,68 @@
       </button>
   </mat-sidenav>
   <mat-sidenav-content>
+    <div fxLayout="row" fxLayoutAlign="end center" class="action-buttons">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="fileMenu" class="action-button">
+        <mat-icon>save</mat-icon>
+        File
+      </button>
+      <mat-menu #fileMenu="matMenu">
+        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < 50">Download Roadmap</button>
+        <button mat-menu-item (click)="fileInput.click()">Upload Roadmap</button>
+        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < 50">Clear Roadmap</button>
+      </mat-menu>
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu" class="action-button" *ngIf="roadmap.length >= 450">
+        <mat-icon>cloud_download</mat-icon>
+        Export
+      </button>
+      <mat-menu #exportMenu="matMenu">
+        <button mat-menu-item (click)="downloadWord()">Export to Word</button>
+        <button mat-menu-item (click)="savePdf()">Export to PDF</button>
+        <button mat-menu-item (click)="saveGanttPdf()" [disabled]="selectedSteps.length == 0">Export Planning to PDF</button>
+        <button mat-menu-item (click)="openGanttAsPng()" [disabled]="selectedSteps.length == 0">Export Gantt to PNG</button>
+        <button mat-menu-item (click)="openTimelineAsPng()" [disabled]="selectedSteps.length == 0">Export Timeline to PNG</button>
+      </mat-menu>
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="viewMenu" class="action-button" *ngIf="selectedSteps.length > 0">
+        <mat-icon>bar_chart</mat-icon>
+        Diagrams
+      </button>
+      <mat-menu #viewMenu="matMenu">
+        <button mat-menu-item (click)="openTimelineDialog()">View Timeline</button>
+        <button mat-menu-item (click)="openGanttDialog()">View Gantt Chart</button>
+      </mat-menu>
+      <button mat-raised-button color="primary"
+        *ngIf="selectedSteps.length > 0" (click)="openStepsDialog()" class="action-button">
+        <mat-icon>edit</mat-icon>&nbsp;
+        Edit timeline
+      </button>
+    </div>
     <div class="nav-content">
       <div [innerHTML]="roadmap | safe: 'html'" id="roadmap-preview"></div>
       <div *ngIf="selectedSteps.length > 0" id="planning">
-        <h2>Roadmap planning</h2>
+        <h1>Roadmap planning diagrams</h1>
         <div id="gantt">
-          <h3>Gantt chart</h3>
+          <h2>Gantt chart</h2>
           <app-gantt-chart [roadmapStart]="roadmapStart" [roadmapEnd]="roadmapEnd" [selectedSteps]="selectedSteps"></app-gantt-chart>
         </div>
+        <div fxLayout="row" fxLayoutAlign="end center" class="chart-buttons">
+          <button mat-raised-button color="primary" (click)="openGanttDialog()">
+            Open Gantt in new window
+          </button>
+          <button mat-raised-button color="primary" (click)="openGanttAsPng()">
+            Open Gantt as PNG new window
+          </button>
+        </div>
         <div id="timeline">
-          <h3>Timeline</h3>
+          <h2>Timeline</h2>
           <app-timeline-chart [data]="{ country, selectedSteps, roadmapStart, roadmapEnd }"></app-timeline-chart>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" class="chart-buttons">
+          <button mat-raised-button color="primary" (click)="openTimelineDialog()">
+            Open Timeline in new window
+          </button>
+          <button mat-raised-button color="primary" (click)="openTimelineAsPng()">
+            Open Timeline as PNG new window
+          </button>
         </div>
       </div>
       <router-outlet></router-outlet>

@@ -59,6 +59,7 @@ mat-grid-list {
     height: 88vh;
     margin-right: 15px;
     margin-left: 15px;
+    padding-top: 65px;
 }
 
 h2 {
@@ -67,4 +68,24 @@ h2 {
 
 #roadmap-preview {
     margin: 15px;
+}
+
+.action-buttons {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 999;
+}
+
+.action-button {
+    box-shadow: 8px 8px 15px grey;
+}
+#planning {
+    margin-right: 15px;
+    margin-left: 15px;
+    padding-top: 65px;
+}
+
+.chart-buttons {
+    margin: 20px;
 }
