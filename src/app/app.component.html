@@ -93,6 +93,7 @@
         <mat-select [(ngModel)]="selectedSteps" name="selectedSteps" [compareWith]="compareOptionsSteps" multiple>
           <mat-optgroup *ngFor="let group of steps" [label]="group.group">
             <button mat-flat-button (click)="addAllGroup(group.group)">Add all</button>
+            <button mat-flat-button (click)="addCustom(group.group)">Add custom step</button>
             <mat-option *ngFor="let step of group.options" [value]="{ group: group.group, step: step, date: '' }" (onSelectionChange)="changeSteps()">
               {{step.opSelector}}
             </mat-option>

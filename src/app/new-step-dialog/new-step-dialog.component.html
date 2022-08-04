@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>New custom step</h1>
+<div mat-dialog-content>
+  <!-- <app-editor-single [text]="data.text"></app-editor-single> -->
+  <mat-form-field appearance="fill" class="selectorsControl">
+    <mat-label>Enter new step details:</mat-label>
+    <input matInput type="text" [(ngModel)]="data.opSelector" name="text">
+  </mat-form-field>
+  <ckeditor [editor]="Editor" [(ngModel)]="data.text"></ckeditor>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

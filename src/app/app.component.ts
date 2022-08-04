@@ -23,6 +23,7 @@ import { saveAs } from 'file-saver'
 
 import * as pdfMake from "pdfmake/build/pdfmake";  
 import * as pdfFonts from "pdfmake/build/vfs_fonts";  
+import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.component';
 declare var require: any;
 const htmlToPdfmake = require("html-to-pdfmake");
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
@@ -227,6 +228,37 @@ export class AppComponent implements OnInit{
     const mergeResult = [...this.selectedSteps, ...stepsToAdd];
     this.selectedSteps = mergeResult;
     this.changeSteps();
+  }
+
+  addCustom(groupToAdd: string) {
+    const dialogRef = this.dialog.open(NewStepDialogComponent, {
+      width: '100%',
+      height: '90%',
+      data: {
+        opSelector: "Custom step for " + groupToAdd,
+        text: '<p><mark>[INSTRUCTIONS - Please customize this sample step description, or replace it with your own]</mark></p>'
+      },
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedSteps.push({
+        group: groupToAdd,
+        step:result,
+        date: ''
+      });
+      this.changeSteps();
+    });
+
+    // this.selectedSteps.push({
+    //   group: groupToAdd,
+    //   step: { 
+    //     opSelector: "Custom step for " + groupToAdd,
+    //     text: '<p><mark>[INSTRUCTIONS - Please customize this sample step description, or replace it with your own]</mark></p>'
+    //   },
+    //   date: ''
+    // });
+    // this.changeSteps();
   }
 
   change(section: string, event: any) {
