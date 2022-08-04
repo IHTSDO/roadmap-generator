@@ -23,7 +23,6 @@ export class GanttChartComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes for gantt')
     setTimeout(() => {
       this.updateGantt();
     }, 100);

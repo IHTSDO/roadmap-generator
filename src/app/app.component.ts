@@ -76,7 +76,7 @@ export class AppComponent implements OnInit{
   clinicalFocus!: sourceData[];
   selectedClinicalFocus = [];
   stepsIntro = '';
-  steps!: dataGrouper[];
+  stepOptions!: dataGrouper[];
   selectedSteps:any[] = [];
   projects!: sourceData[];
   selectedProject: any | undefined;
@@ -115,7 +115,7 @@ export class AppComponent implements OnInit{
     this.clinicalFocusIntro = clinicalFocusIntro;
     this.clinicalFocus = clinicalFocus;
     this.stepsIntro = stepsIntro;
-    this.steps = steps;
+    this.stepOptions = Object.assign([], steps);
     this.projects = projects;
     this.closings = closings;
     this.nameChanged()
@@ -215,7 +215,7 @@ export class AppComponent implements OnInit{
 
   addAllGroup(groupToAdd: string) {
     let stepsToAdd:any[] = [];
-    steps.forEach(group => {
+    this.stepOptions.forEach(group => {
       if (group.group ==groupToAdd) {
         group.options.forEach(option => {
           const matches = this.selectedSteps.filter(step => step.step.opSelector == option.opSelector);
@@ -242,23 +242,18 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.stepOptions.forEach(group => {
+        if (group.group ==groupToAdd) {
+          group.options.push(result);
+        }
+      });
       this.selectedSteps.push({
         group: groupToAdd,
-        step:result,
+        step: result,
         date: ''
       });
       this.changeSteps();
     });
-
-    // this.selectedSteps.push({
-    //   group: groupToAdd,
-    //   step: { 
-    //     opSelector: "Custom step for " + groupToAdd,
-    //     text: '<p><mark>[INSTRUCTIONS - Please customize this sample step description, or replace it with your own]</mark></p>'
-    //   },
-    //   date: ''
-    // });
-    // this.changeSteps();
   }
 
   change(section: string, event: any) {
@@ -594,26 +589,28 @@ export class AppComponent implements OnInit{
   }
 
   clear() {
-    this.roadmapStart = new Date(),
-    this.roadmapEnd = new Date(),
-    this.selectedBackground = null;
-    this.updateFromData('Background', this.selectedBackground);
-    this.selectedVisions = [];
-    this.changeVision();
-    this.selectedCurrentState = null;
-    this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
-    this.selectedGoals = [];
-    this.changeGoals();
-    this.selectedClinicalFocus = [];
-    this.changeClinicalFocus();
-    this.selectedSteps = [];
-    this.changeSteps();
-    this.selectedProject = null;
-    this.updateFromData('Implementation-projects', this.selectedProject);
-    this.selectedClosing = null;
-    this.updateFromData('Closing-remarks', this.selectedClosing);
-    this.country = 'Country Name';
-    this.nameChanged();
+    location.reload();
+    // this.roadmapStart = new Date(),
+    // this.roadmapEnd = new Date(),
+    // this.selectedBackground = null;
+    // this.updateFromData('Background', this.selectedBackground);
+    // this.selectedVisions = [];
+    // this.changeVision();
+    // this.selectedCurrentState = null;
+    // this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
+    // this.selectedGoals = [];
+    // this.changeGoals();
+    // this.selectedClinicalFocus = [];
+    // this.changeClinicalFocus();
+    // this.selectedSteps = [];
+    // this.stepOptions = Object.assign([], steps);
+    // this.changeSteps();
+    // this.selectedProject = null;
+    // this.updateFromData('Implementation-projects', this.selectedProject);
+    // this.selectedClosing = null;
+    // this.updateFromData('Closing-remarks', this.selectedClosing);
+    // this.country = 'Country Name';
+    // this.nameChanged();
   }
 
   uploadFile(event: any) {
