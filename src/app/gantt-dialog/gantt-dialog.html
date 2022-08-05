@@ -1,9 +1,12 @@
 <h1 mat-dialog-title>{{data.country}}: SNOMED CT Implementation Roadmap</h1>
-<div mat-dialog-content>
+<div mat-dialog-content id="gantt-in-dialog">
   <div>
     <app-gantt-chart [roadmapStart]="data.roadmapStart" [roadmapEnd]="data.roadmapEnd" [selectedSteps]="data.selectedSteps"></app-gantt-chart>
   </div>
 </div>
 <div mat-dialog-actions>
   <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Close</button>
+  <button mat-raised-button color="primary" (click)="openGanttAsPng()">
+    Open Gantt as PNG in new window
+  </button>
 </div>

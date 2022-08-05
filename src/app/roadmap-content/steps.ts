@@ -1,6 +1,66 @@
 export const stepsIntro = `The roadmap for SNOMED CT implementation in <span class='country'>COUNTRY</span> will be include the following steps:`;
 export const steps = [
     {
+      group: "Plan Adoption",
+      options: [
+        {
+          opSelector: "Develop a national strategy for promoting SNOMED CT adoption",
+          text: `<p>Implement a strategy to identify the barriers and enablers for the adoption of SNOMED CT and to execute 
+          actions to promote adoption based on this understanding. This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify the barriers for SNOMED CT adoption in <span class='country'>COUNTRY</span>, including legislation,  
+              policy, lack of availability of robust national infrastructure, knowledge, skills and commercial interests.</li>
+            <li>Identify the enablers for SNOMED CT adoption in <span class='country'>COUNTRY</span>. including 
+              local champions of SNOMED CT, legislation, policy, availability of national infrastructure, knowledge, skills, 
+              education providers, and commercial or financial interests.</li>
+            <li>Implement actions to reduce barriers and increase enablers of SNOMED CT adoption in clinical health information 
+              systems, e.g. legislation and policy changes, development of national infrastructure, provision of financial incentives.</li>
+          </ul>`
+        },
+        {
+          opSelector: "Identify impactful national projects",
+          text: `<p>Identify projects that will have a significant impact in the national healthcare scenario, supporting 
+          the implementation of policies related to the top priorities of the national healthcare agenda.</p>
+          <p>This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify the priorities of the healthcare agenda and select projects that would contribute to its execution.</li>
+            <li>Work with project stakeholders to agree on goals for use of SNOMED CT within the selected projects.</li>
+            <li>Design and architect how SNOMED CT will be implemented in the projects and develop SNOMED CT implementation guidance.</li>
+            <li>Implement project with SNOMED CT and measure the benefits to support policy implementation monitoring.</li>
+            <li>Share outcomes with stakeholders and future projects, including benefits and lessons learned.</li>
+          </ul>`
+        },
+        {
+          opSelector: "Identify quick wins and low hanging fruit projects",
+          text: `<p>Identify projects that are good candidates for short and effective implementations. This strategy will prioritize 
+          small projects with a clear goal and benefit from implementing SNOMED CT, and with proactive, skilled, and flexible teams. Dedicated 
+          implementation guidance from the NRC and SNOMED International will be key to accelerate the implementation process and 
+          produce compelling results early.</p>
+          <p>This step may involve the following tasks:</p>
+          <ul>
+            <li>Identify projects that may be good candidates for achieving benefits quickly and/or with low effort.</li>
+            <li>Work with project stakeholders to agree on goals for use of SNOMED CT within the selected projects.</li>
+            <li>Design and architect how SNOMED CT will be implemented in the projects and develop SNOMED CT implementation guidance.</li>
+            <li>Implement project with SNOMED CT and measure the benefits where possible.</li>
+            <li>Share outcomes with stakeholders and future projects, including benefits and lessons learned.</li>
+          </ul>`
+        },
+        {
+          opSelector: "Onboard influencers / champions",
+          text: `<p>Engage with champions and influencers from early adopters of SNOMED CT.
+          This step may involve the following tasks:</p>
+          <ul>
+            <li>Contact early adopters to find examples of successful SNOMED CT implementations.</li>
+            <li>Identify SNOMED CT champions or influencers from early adopters (or other relevant stakeholders), who have a clear 
+              view of the benefits of SNOMED CT.</li>
+            <li>Provide any necessary training, support and/or information for the selected champions.</li>
+            <li>Engage with the champions to produce communication pieces, webinars, and exemplar implementation examples 
+              for training.</li>
+          </ul>`
+        }
+      ]
+    },
+    {
       group: "Standards and Artifacts",
       options: [
         {
@@ -82,7 +142,7 @@ export const steps = [
             <li>Establish an authoring team and provide SNOMED CT authoring training (e.g. using SNOMED International's authoring courses).</li>
             <li>Ensure authors are certified in SNOMED CT authoring with SNOMED International.</li>
             <li>Select and deploy a SNOMED CT authoring platform and a content request system for submission of new content requests.</li>
-            <li>Estalish editorial guidelines, authoring/release processes, roles and responsibilities.</li>
+            <li>Establish editorial guidelines, authoring/release processes, roles and responsibilities.</li>
             <li>Validate, prepare and publish RF2 package for the <span class='country'>COUNTRY</span> Edition.</li>
             <li>Distribute the extension edition (e.g. via a terminology server or RF2 files), ready to deploy on any RF2-enabled terminology server.</li>
             <li>Maintain and republish the extension edition, following and agreed schedule.</li>
@@ -164,7 +224,7 @@ export const steps = [
             <li>Select an organisation to serve as <span class='country'>COUNTRY</span>'s NRC.</li>
             <li>Define the functions and responsibilities of the NRC.</li>
             <li>Recruit appropriate resources to the NRC and provide staff with SNOMED CT training</li>
-            <li>Aquire appropriate tooling to support NRC's functions, e.g. terminology distribution service, authoring platform.</li>
+            <li>Acquire appropriate tooling to support NRC's functions, e.g. terminology distribution service, authoring platform.</li>
             <li>Run the NRC in a sustainable way, promoting and supporting the adoption and implementation of SNOMED CT.</li>
           </ul>`
         },
@@ -180,52 +240,6 @@ export const steps = [
             <li>Consider other modes of training, including in person workshops, vendor days and/or showcase events.</li>
             <li>Implements education plans, including running workshops and deploying customized online training.</li>
             <li>Participate in SNOMED International's ELearning Advisory Group to share education experiences with other Members.</li>
-          </ul>`
-        }
-      ]
-    },
-    {
-      group: "Promote Adoption",
-      options: [
-        {
-          opSelector: "Develop a national strategy for promoting SNOMED CT adoption",
-          text: `<p>Implement a strategy to identify the barriers and enablers for the adoption of SNOMED CT and to execute 
-          actions to promote adoption based on this understanding. This step may involve the following tasks:</p>
-          <ul>
-            <li>Identify the barriers for SNOMED CT adoption in <span class='country'>COUNTRY</span>, including legislation,  
-              policy, lack of availability of robust national infrastructure, knowledge, skills and commercial interests.</li>
-            <li>Identify the enablers for SNOMED CT adoption in <span class='country'>COUNTRY</span>. including 
-              local champions of SNOMED CT, legislation, policy, availability of national infrastructure, knowledge, skills, 
-              education providers, and commercial or financial interests.</li>
-            <li>Implement actions to reduce barriers and increase enablers of SNOMED CT adoption in clinical health information 
-              systems, e.g. legislation and policy changes, development of national infrastructure, provision of financial incentives.</li>
-          </ul>`
-        },
-        {
-          opSelector: "Onboard influencers / champions",
-          text: `<p>Engage with champions and influencers from early adoptors of SNOMED CT.
-          This step may involve the following tasks:</p>
-          <ul>
-            <li>Contact early adoptors to find examples of successful SNOMED CT implementations.</li>
-            <li>Identify SNOMED CT champions or influencers from early adoptors (or other relevant stakeholders), who have a clear 
-              view of the benefits of SNOMED CT.</li>
-            <li>Provide any necessary training, support and/or information for the selected champions.</li>
-            <li>Engage with the champions to produce communication pieces, webinars, and exemplar implemention examples 
-              for training.</li>
-          </ul>`
-        },
-        {
-          opSelector: "Identify quick wins and low hanging fruit projects",
-          text: `<p>Identify projects that are good candidates for short and effective implementations. This strategy will prioritize 
-          small projects with a clear goal and benefit from implementing SNOMED CT, and with proactive, skilled, and flexible teams. Dedicated implementation guidance from the NRC and SNOMED International will be key to accelerate the implementation process and 
-          produce compelling results early.</p>
-          This step may involve the following tasks:</p>
-          <ul>
-            <li>Identify projects that may be good candidates for achieving benefits quickly and/or with low effort.</li>
-            <li>Work with project stakeholders to agree on goals for use of SNOMED CT within the selected projects.</li>
-            <li>Design and architect how SNOMED CT will be implemented in the projects and develop SNOMED CT implementation guidance.</li>
-            <li>Implement project with SNOMED CT and measure the benefits where possible.</li>
-            <li>Share outcomes with stakeholders and future projects, including benefits and lessons learned.</li>
           </ul>`
         }
       ]

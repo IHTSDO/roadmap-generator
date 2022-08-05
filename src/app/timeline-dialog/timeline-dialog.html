@@ -1,7 +1,10 @@
 <h1 mat-dialog-title>{{data.country}}: SNOMED CT Implementation Roadmap</h1>
-<div mat-dialog-content>
+<div mat-dialog-content id="timeline-in-dialog">
   <app-timeline-chart [data]="data"></app-timeline-chart>
 </div>
 <div mat-dialog-actions>
   <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Close</button>
+  <button mat-raised-button color="primary" (click)="openTimelineAsPng()">
+    Open Timeline as PNG in new window
+  </button>
 </div>

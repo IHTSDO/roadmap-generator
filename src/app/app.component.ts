@@ -141,7 +141,7 @@ export class AppComponent implements OnInit{
       if (this.selectedGoals.length > 0) {
         let goalsText = `<p>${this.goalsIntro}</p><ul>`;
         this.selectedGoals.forEach((goal: any) => {
-          goalsText = goalsText + `<li><b>${goal.opSelector}:</b> ${goal.text}</li>`;
+          goalsText = goalsText + `<li><b>${goal.opSelector}</b> ${goal.text}</li>`;
         })
         this.replaceSection('Goals', `<h2>Goals</h2>${goalsText}</ul>`);
         this.nameChanged()
@@ -156,7 +156,7 @@ export class AppComponent implements OnInit{
       if (this.selectedClinicalFocus.length > 0) {
         let focusText = `<p>${this.clinicalFocusIntro}</p><ul>`;
         this.selectedClinicalFocus.forEach((focus: any) => {
-          focusText = focusText + `<li><b>${focus.opSelector}:</b> ${focus.text}</li>`;
+          focusText = focusText + `<li><b>${focus.opSelector}</b> ${focus.text}</li>`;
         })
         this.replaceSection('Clinical-Focus', `<h2>Clinical focus</h2>${focusText}</ul>`);
         this.nameChanged()
@@ -173,14 +173,14 @@ export class AppComponent implements OnInit{
         let groupsu =  [...new Set(groups)];
         let stepsText = `<p>${this.stepsIntro}</p><ul>`;
         groupsu.forEach( (group:any) => {
-          stepsText = stepsText + `<li><b>${group}</b><ul>`;
+          stepsText = stepsText + `<li><h3>${group}</h3><ul>`;
           this.selectedSteps.forEach((step: any) => {
             if (step.group == group) {
               stepsText = stepsText + `<li><b>${step.step.opSelector}</b>`;
               if (step.dateStart && step.dateEnd) {
                 stepsText = stepsText + ` (${step.dateStart.toISOString().split('T')[0]} to ${step.dateEnd.toISOString().split('T')[0]})`;
               }
-              stepsText = stepsText + `: ${step.step.text}`;
+              stepsText = stepsText + `<p>${step.step.text}</p>`;
               if (step.step.milestones && step.step.milestones.length > 0) {
                 const sortedMilestones = step.step.milestones.sort(function(a:any,b:any){
                   var key1 = a.date;

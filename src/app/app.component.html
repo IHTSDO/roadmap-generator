@@ -14,8 +14,11 @@
     <button mat-menu-item (click)="loadJsonExample('example1.json')">
       Roadmap for Snomedland
     </button>
+    <button mat-menu-item (click)="loadJsonExample('example2.json')">
+      [TEST] Maximum roadmap content selected for revision
+    </button>
   </mat-menu>
-  <a href="https://github.com/alopezo/coding-demo-template-ng" target="_blank" mat-raised-button color="accent"><mat-icon>info</mat-icon></a>
+  <a href="https://github.com/ihtsdo/roadmap-generator" target="_blank" mat-raised-button color="accent"><mat-icon>info</mat-icon></a>
 </mat-toolbar>
 <mat-sidenav-container [hasBackdrop]="false">
   <mat-sidenav #sidenav [mode]="'side'" [opened]="true" class="rmsidenav">
@@ -139,9 +142,9 @@
         File
       </button>
       <mat-menu #fileMenu="matMenu">
-        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < 50">Download Roadmap</button>
+        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < 450">Download Roadmap</button>
         <button mat-menu-item (click)="fileInput.click()">Upload Roadmap</button>
-        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < 50">Clear Roadmap</button>
+        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < 450">Clear Roadmap</button>
       </mat-menu>
       <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu" class="action-button" *ngIf="roadmap.length >= 450">
         <mat-icon>cloud_download</mat-icon>
@@ -150,9 +153,6 @@
       <mat-menu #exportMenu="matMenu">
         <button mat-menu-item (click)="downloadWord()">Export to Word</button>
         <button mat-menu-item (click)="savePdf()">Export to PDF</button>
-        <button mat-menu-item (click)="saveGanttPdf()" [disabled]="selectedSteps.length == 0">Export Planning to PDF</button>
-        <button mat-menu-item (click)="openGanttAsPng()" [disabled]="selectedSteps.length == 0">Export Gantt to PNG</button>
-        <button mat-menu-item (click)="openTimelineAsPng()" [disabled]="selectedSteps.length == 0">Export Timeline to PNG</button>
       </mat-menu>
       <button mat-raised-button color="primary" [matMenuTriggerFor]="viewMenu" class="action-button" *ngIf="selectedSteps.length > 0">
         <mat-icon>bar_chart</mat-icon>
@@ -160,7 +160,10 @@
       </button>
       <mat-menu #viewMenu="matMenu">
         <button mat-menu-item (click)="openTimelineDialog()">View Timeline</button>
+        <!-- <button mat-menu-item (click)="openTimelineAsPng()" [disabled]="selectedSteps.length == 0">Export Timeline to PNG</button> -->
         <button mat-menu-item (click)="openGanttDialog()">View Gantt Chart</button>
+        <!-- <button mat-menu-item (click)="openGanttAsPng()" [disabled]="selectedSteps.length == 0">Export Gantt to PNG</button> -->
+        <!-- <button mat-menu-item (click)="saveGanttPdf()" [disabled]="selectedSteps.length == 0">Export Planning to PDF</button> -->
       </mat-menu>
       <button mat-raised-button color="primary"
         *ngIf="selectedSteps.length > 0" (click)="openStepsDialog()" class="action-button">
