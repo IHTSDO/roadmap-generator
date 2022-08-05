@@ -171,7 +171,16 @@
         Edit timeline
       </button>
     </div>
-    <div class="nav-content">
+    <div class="nav-content" *ngIf="roadmap.length < 450">
+      <p class="welcome-title">Welcome to the SNOMED CT Roadmap Generator</p>
+      <p class="welcome-text">This is an education tool, used to promote and support the creation of national roadmaps for the adoption of SNOMED CT.</p>
+      <p class="welcome-text">You can start creating a new roadmap by selecting the components from the design form on the 
+        left, or you can <a href="javascript:void(0);" (click)="fileInput.click()" class="welcome-link">upload a roadmap saved in your computer</a>, 
+        or you can <a href="javascript:void(0);" (click)="loadJsonExample('example1.json')" class="welcome-link">load an example</a>.
+      </p>
+      <img src="assets/img/swirl.png" class="img-center">
+    </div>
+    <div class="nav-content" *ngIf="roadmap.length >= 450">
       <div [innerHTML]="roadmap | safe: 'html'" id="roadmap-preview"></div>
       <div *ngIf="selectedSteps.length > 0" id="planning">
         <h1>Roadmap planning diagrams</h1>
