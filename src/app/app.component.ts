@@ -299,14 +299,35 @@ export class AppComponent implements OnInit{
   }
 
   animate(section: string) {
+    // const element = document.querySelectorAll('.'+section)[0];
+    // const contentDiv = document.querySelectorAll('.nav-content')[0];
+    // // element_to_scroll_to.scrollIntoView();
+    // const topPos = element.getBoundingClientRect().top + window.pageYOffset
+
+    // contentDiv.scrollTo({
+    //   top: topPos, // scroll so that the element is at the top of the view
+    //   behavior: 'smooth' // smooth scroll
+    // })
+
     setTimeout(() => {
       var elements = document.querySelectorAll(`.${section}`);
+      
       anime({
         targets: elements,
-        backgroundColor: ['#f0fc03','transparent'],
-        duration: 8000
+        backgroundColor: ['#f0fc03'],
+        duration: 1500
       });
-    }, 100)
+    }, 200)
+
+    setTimeout(() => {
+      var elements = document.querySelectorAll(`.${section}`);
+      
+      anime({
+        targets: elements,
+        backgroundColor: ['transparent'],
+        duration: 1000
+      });
+    }, 1200)
   }
 
   openStepsDialog(): void {
@@ -611,6 +632,11 @@ export class AppComponent implements OnInit{
     // this.updateFromData('Closing-remarks', this.selectedClosing);
     // this.country = 'Country Name';
     // this.nameChanged();
+  }
+
+  getBackgroundImageUrl() {
+    // linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    return "url('assets/img/sct-worldwide_1.jpeg')";
   }
 
   uploadFile(event: any) {

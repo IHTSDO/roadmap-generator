@@ -90,18 +90,45 @@ h2 {
     margin: 20px;
 }
 
+.head-welcome {
+    height: 700px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+}
+
 .welcome-title {
-    text-align: center;
-    /* margin-top: 10px; */
+    /* text-align: center; */
+    position: absolute;
+    top: 15%;
+    left: 60px;
     font-size: xx-large;
+    font-weight: bolder;
+    background-color: black;
+    color: #fff; 
+    display: inline;
+    padding: 0.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.head-ps {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.717);
+    color: black;
+    display: inline;
+    padding: 0.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .welcome-text {
     text-align: center;
-    margin-top: 3em;
-    font-size: large;
-    margin-left: 20%;
-    margin-right: 20%;
+    font-size: x-large;
+    line-height: 1.2;
 }
 
 .welcome-link {
