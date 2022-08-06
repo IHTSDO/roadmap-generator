@@ -23,6 +23,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { MzdTimelineModule } from 'ngx-mzd-timeline';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -77,7 +78,8 @@ import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.compon
     HttpClientModule,
     MatSidenavModule,
     MatDividerModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTooltipModule
   ],
   providers: [
     {

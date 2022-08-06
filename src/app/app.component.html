@@ -20,6 +20,12 @@
   </mat-menu>
   <a href="https://github.com/ihtsdo/roadmap-generator" target="_blank" mat-raised-button color="accent"><mat-icon>info</mat-icon></a>
 </mat-toolbar>
+<button mat-fab color="accent" id="nav-open" (click)="sidenav.open()" *ngIf="!sidenav.opened" matTooltip="Open design form" [matTooltipPosition]="'right'">
+  <mat-icon>arrow_forward_ios</mat-icon>
+</button>
+<button mat-fab color="accent" id="nav-close" (click)="sidenav.close()" *ngIf="sidenav.opened" matTooltip="Close design form" [matTooltipPosition]="'right'">
+  <mat-icon>arrow_back_ios</mat-icon>
+</button>
 <mat-sidenav-container [hasBackdrop]="false">
   <mat-sidenav #sidenav [mode]="'side'" [opened]="false" class="rmsidenav">
     <h2>Select components</h2>
