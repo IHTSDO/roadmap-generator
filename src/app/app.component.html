@@ -26,7 +26,7 @@
 <button mat-fab color="accent" id="nav-close" (click)="sidenav.close()" *ngIf="sidenav.opened" matTooltip="Close design form" [matTooltipPosition]="'right'">
   <mat-icon>arrow_back_ios</mat-icon>
 </button>
-<mat-sidenav-container [hasBackdrop]="false">
+<mat-sidenav-container [hasBackdrop]="false" id="sidenav-main">
   <mat-sidenav #sidenav [mode]="'side'" [opened]="false" class="rmsidenav">
     <h2>Select components</h2>
       <mat-form-field class="example-form-field" appearance="fill" class="selectorsControl">
@@ -179,7 +179,7 @@
     </div>
     <div class="nav-content" *ngIf="roadmap.length < 450">
       <div class="head-welcome" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
-        <p class="welcome-title">Welcome to the SNOMED CT Roadmap Generator</p>
+        <p class="welcome-title">Welcome to the SNOMED CT Implementation Roadmap Generator</p>
         <div class="head-ps">
           <p class="welcome-text">This is an education tool, used to promote and support the creation of national roadmaps for the adoption of SNOMED CT.</p>
           <p class="welcome-text">You can start creating a new roadmap by selecting the components from the 
