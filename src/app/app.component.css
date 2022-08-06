@@ -102,12 +102,13 @@ h2 {
     position: absolute;
     top: 15%;
     left: 60px;
-    font-size: xx-large;
+    line-height: 1.2;
+    font-size: 40px;
     font-weight: bolder;
     background-color: black;
     color: #fff; 
     display: inline;
-    padding: 0.5rem;
+    padding: 0.8rem;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
