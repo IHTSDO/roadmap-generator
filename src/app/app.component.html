@@ -47,7 +47,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openBackgroundsEditor()" [disabled]="!selectedBackground">
+      <button mat-icon-button color="primary" (click)="openBackgroundsEditor()" [disabled]="!selectedBackground"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -58,7 +59,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openVisionEditor()" [disabled]="!selectedVisions.length">
+      <button mat-icon-button color="primary" (click)="openVisionEditor()" [disabled]="!selectedVisions.length"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -72,7 +74,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openCurrentStateEditor()" [disabled]="!selectedCurrentState">
+      <button mat-icon-button color="primary" (click)="openCurrentStateEditor()" [disabled]="!selectedCurrentState"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -83,7 +86,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openGoalsEditor()" [disabled]="!selectedGoals.length">
+      <button mat-icon-button color="primary" (click)="openGoalsEditor()" [disabled]="!selectedGoals.length"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -94,7 +98,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openFocusEditor()" [disabled]="!selectedClinicalFocus.length">
+      <button mat-icon-button color="primary" (click)="openFocusEditor()" [disabled]="!selectedClinicalFocus.length"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -109,7 +114,8 @@
           </mat-optgroup>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openStepsDialog()" [disabled]="selectedSteps.length == 0">
+      <button mat-icon-button color="primary" (click)="openStepsDialog()" [disabled]="selectedSteps.length == 0"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -123,7 +129,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openProjectsEditor()" [disabled]="!selectedProject">
+      <button mat-icon-button color="primary" (click)="openProjectsEditor()" [disabled]="!selectedProject"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
@@ -137,7 +144,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-icon-button color="primary" (click)="openClosingEditor()" [disabled]="!selectedClosing">
+      <button mat-icon-button color="primary" (click)="openClosingEditor()" [disabled]="!selectedClosing"
+      matTooltip="Edit options text" [matTooltipPosition]="'right'">
         <mat-icon>edit</mat-icon>
       </button>
   </mat-sidenav>
