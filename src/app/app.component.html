@@ -156,11 +156,11 @@
         File
       </button>
       <mat-menu #fileMenu="matMenu">
-        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < 450">Download Roadmap</button>
+        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < 460">Download Roadmap</button>
         <button mat-menu-item (click)="fileInput.click()">Upload Roadmap</button>
-        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < 450">Clear Roadmap</button>
+        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < 460">Clear Roadmap</button>
       </mat-menu>
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu" class="action-button" *ngIf="roadmap.length >= 450">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu" class="action-button" *ngIf="roadmap.length >= 460">
         <mat-icon>cloud_download</mat-icon>
         Export
       </button>
@@ -182,25 +182,26 @@
       <button mat-raised-button color="primary"
         *ngIf="selectedSteps.length > 0" (click)="openStepsDialog()" class="action-button">
         <mat-icon>edit</mat-icon>&nbsp;
-        Edit timeline
+        Edit dates
       </button>
     </div>
-    <div class="nav-content" *ngIf="roadmap.length < 450">
+    <div class="nav-content" *ngIf="roadmap.length < 460">
       <div class="head-welcome" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
         <p class="welcome-title">Welcome to the SNOMED CT Implementation Roadmap Generator</p>
         <div class="head-ps">
-          <p class="welcome-text">This is an education tool, used to promote and support the creation of national roadmaps for the adoption of SNOMED CT.</p>
+          <p class="welcome-text">This is an educational tool, used to promote and support the creation of national roadmaps for the adoption of SNOMED CT.</p>
           <p class="welcome-text">You can start creating a new roadmap by selecting the components from the 
-            <a href="javascript:void(0);" (click)="sidenav.open()" class="welcome-link">design form</a>, or you can 
-            <a href="javascript:void(0);" (click)="fileInput.click()" class="welcome-link">upload a roadmap</a> saved in your computer, 
+            <a href="javascript:void(0);" (click)="sidenav.open()" class="welcome-link">design form</a>, you can 
+            <a href="javascript:void(0);" (click)="fileInput.click()" class="welcome-link">upload a roadmap</a> saved on your computer, 
             or you can <a href="javascript:void(0);" (click)="loadJsonExample('example1.json')" class="welcome-link">load an example</a>.
           </p>
         </div>
       </div>
       <!-- <img src="assets/img/swirl.png" class="img-center"> -->
     </div>
-    <div class="nav-content" *ngIf="roadmap.length >= 450">
+    <div class="nav-content" *ngIf="roadmap.length >= 460">
       <div [innerHTML]="roadmap | safe: 'html'" id="roadmap-preview"></div>
+      <hr>
       <div *ngIf="selectedSteps.length > 0" id="planning">
         <h1>Roadmap planning diagrams</h1>
         <div id="gantt">

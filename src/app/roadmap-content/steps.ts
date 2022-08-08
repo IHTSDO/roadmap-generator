@@ -64,7 +64,7 @@ export const steps = [
       group: "Standards and Artifacts",
       options: [
         {
-          opSelector: "Data Models",
+          opSelector: "Data models",
           text: `<p>Define information model standards for recording, exchanging, integrating and analysing clinical data.
           This step may involve the following tasks:</p>
           <ul>
@@ -75,7 +75,7 @@ export const steps = [
           </ul>`
         },
         {
-          opSelector: "Code Systems",
+          opSelector: "Code systems",
           text: `<p>Establish SNOMED CT as the primary reference terminology in <span class='country'>COUNTRY</span>. 
           This step may involve the following tasks:</p>
           <ul>
@@ -88,7 +88,7 @@ export const steps = [
           </ul>`
         },
         {
-          opSelector: "Terminology Binding",
+          opSelector: "Terminology binding",
           text: `<p>Bind information models to SNOMED CT and other relevant code systems. This step may involve the following tasks:</p>
           <ul>
             <li>Identify the code system to be used for each coded data element in each information model.</li>
@@ -149,7 +149,7 @@ export const steps = [
           </ul>`
         },
         {
-          opSelector: "Quality Framework",
+          opSelector: "Quality framework",
           text: `<p>Implement a Quality Framework to guide the development of all the terminology artifacts required for
           the SNOMED CT implementation, including new concepts, translations, reference sets, maps, etc.</p>
           <p>Only through continuous improvement processes and indicators is it possible to ensure the best quality for the terminology 
@@ -213,8 +213,8 @@ export const steps = [
           </ul>`
         },
         {
-          opSelector: "National Release Center",
-          text: `<p>Establish the SNOMED National Release Center (NRC) for <span class='country'>COUNTRY</span>. 
+          opSelector: "National release center",
+          text: `<p>Establish the SNOMED National release center (NRC) for <span class='country'>COUNTRY</span>. 
           The primary responsibilities of the NRC include making the SNOMED CT international release available
           to licensees in <span class='country'>COUNTRY</span>, and promoting the adoption of SNOMED CT.
           The NRC is the primary contact point for both national Affiliates and SNOMED International. The NRC also plays 

@@ -95,7 +95,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.roadmap =`
-      <h1><span class='country'></span>: SNOMED CT Implementation Roadmap</h1>
+      <h1>A SNOMED CT Implementation Roadmap for <span class='country'></span></h1>
       <div class="Background"></div>
       <div class="Vision"></div>
       <div class="Current-eHealth-landscape"></div>

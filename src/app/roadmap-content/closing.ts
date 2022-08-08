@@ -6,7 +6,7 @@ export const closings = [
         other healthcare providers in a meaningful way to improve patient outcomes, it enables systems to integrate more effectively
         with clinical decision support knowledge bases, and it enables clinical data to be integrated from disparate systems
         for clinical analytics, population health management and clinical research.</p>
-        <p>Through the implementation of SNOMED CT following this roadmap, <span class='country'>COUNTRY</span> can achieve 
+        <p>Through the implementation of this SNOMED CT roadmap, <span class='country'>COUNTRY</span> can achieve 
         these benefits and deliver on our eHealth goals.</p>`
     },
     {
@@ -20,7 +20,7 @@ export const closings = [
         national registries, analytics and reporting. It will be introduced as a requirement in data exchange models and 
         implementation guides. This will be a coordinated effort that includes the clinicians, software developers, public health 
         officials and technical interoperability architects, among others.</p>
-        <p>Through the implementation of SNOMED CT following this roadmap, <span class='country'>COUNTRY</span> can achieve 
+        <p>Through the implementation of this SNOMED CT roadmap, <span class='country'>COUNTRY</span> can achieve 
         these benefits and deliver on our eHealth goals.</p>`
     }
 ];
