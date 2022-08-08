@@ -25,6 +25,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+
 import { MzdTimelineModule } from 'ngx-mzd-timeline';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxGanttModule, GANTT_GLOBAL_CONFIG } from '@worktile/gantt';
@@ -38,6 +41,18 @@ import { TimelineDialog } from './timeline-dialog/timeline-dialog';
 import { SafePipe } from './safe.pipe';
 import { TimelineChartComponent } from './timeline-chart/timeline-chart.component';
 import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.component';
+
+const MY_DATE_FORMAT = {
+  parse: {
+    dateInput: 'DD/MM/YYYY', // this is how your date will be parsed from Input
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY', // this is how your date will get displayed on the Input
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -79,7 +94,7 @@ import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.compon
     MatSidenavModule,
     MatDividerModule,
     FlexLayoutModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   providers: [
     {
@@ -91,7 +106,9 @@ import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.compon
              yearMonth: `LLLL yyyy'(week' w ')'`
         }
       }
-    }
+    },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
   ],
   entryComponents: [StepsDatesDialog, TimelineDialog, GanttDialog],
   bootstrap: [AppComponent]
