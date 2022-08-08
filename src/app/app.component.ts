@@ -242,17 +242,19 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.stepOptions.forEach(group => {
-        if (group.group ==groupToAdd) {
-          group.options.push(result);
-        }
-      });
-      this.selectedSteps.push({
-        group: groupToAdd,
-        step: result,
-        date: ''
-      });
-      this.changeSteps();
+      if (result) {
+        this.stepOptions.forEach(group => {
+          if (group.group ==groupToAdd) {
+            group.options.push(result);
+          }
+        });
+        this.selectedSteps.push({
+          group: groupToAdd,
+          step: result,
+          date: ''
+        });
+        this.changeSteps();
+      }
     });
   }
 
@@ -339,10 +341,12 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedSteps = result.selectedSteps;
-      this.roadmapStart = result.roadmapStart;
-      this.roadmapEnd = result.roadmapEnd;
-      this.changeSteps();
+      if (result) {
+        this.selectedSteps = result.selectedSteps;
+        this.roadmapStart = result.roadmapStart;
+        this.roadmapEnd = result.roadmapEnd;
+        this.changeSteps();
+      }
     });
   }
 
@@ -400,9 +404,11 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedBackground.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      this.updateFromData('Background', this.selectedBackground);
-      this.nameChanged();
+      if (result) {
+        this.selectedBackground.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        this.updateFromData('Background', this.selectedBackground);
+        this.nameChanged();
+      }
     });
   }
 
@@ -417,9 +423,11 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedCurrentState.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
-      this.nameChanged();
+      if (result) {
+        this.selectedCurrentState.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        this.updateFromData('Current-eHealth-landscape', this.selectedCurrentState);
+        this.nameChanged();
+      }
     });
   }
 
@@ -434,9 +442,11 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedProject.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      this.updateFromData('Implementation-projects', this.selectedProject);
-      this.nameChanged();
+      if (result) {
+        this.selectedProject.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        this.updateFromData('Implementation-projects', this.selectedProject);
+        this.nameChanged();
+      }
     });
   }
 
@@ -451,9 +461,11 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedClosing.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      this.updateFromData('Closing-remarks', this.selectedClosing);
-      this.nameChanged();
+      if (result) {
+        this.selectedClosing.text = result.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        this.updateFromData('Closing-remarks', this.selectedClosing);
+        this.nameChanged();
+      }
     });
   }
 
@@ -468,12 +480,14 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      result.selectedOptions.forEach( (loopVision:any) => {
-        loopVision.text = loopVision.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      })
-      this.selectedVisions = result.selectedOptions;
-      this.changeVision();
-      this.nameChanged();
+      if (result) {
+        result.selectedOptions.forEach( (loopVision:any) => {
+          loopVision.text = loopVision.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        })
+        this.selectedVisions = result.selectedOptions;
+        this.changeVision();
+        this.nameChanged();
+      }
     });
   }
 
@@ -488,12 +502,14 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      result.selectedOptions.forEach( (loopItem:any) => {
-        loopItem.text = loopItem.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      })
-      this.selectedGoals = result.selectedOptions;
-      this.changeGoals();
-      this.nameChanged();
+      if (result) {
+        result.selectedOptions.forEach( (loopItem:any) => {
+          loopItem.text = loopItem.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        })
+        this.selectedGoals = result.selectedOptions;
+        this.changeGoals();
+        this.nameChanged();
+      }
     });
   }
 
@@ -508,12 +524,14 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      result.selectedOptions.forEach( (loopItem:any) => {
-        loopItem.text = loopItem.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
-      })
-      this.selectedClinicalFocus = result.selectedOptions;
-      this.changeClinicalFocus();
-      this.nameChanged();
+      if (result) {
+        result.selectedOptions.forEach( (loopItem:any) => {
+          loopItem.text = loopItem.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+        })
+        this.selectedClinicalFocus = result.selectedOptions;
+        this.changeClinicalFocus();
+        this.nameChanged();
+      }
     });
   }
 
