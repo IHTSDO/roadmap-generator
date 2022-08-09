@@ -7,7 +7,7 @@
       <input matStartDate [(ngModel)]="data.roadmapStart" placeholder="Start date">
       <input matEndDate [(ngModel)]="data.roadmapEnd" placeholder="End date">
     </mat-date-range-input>
-    <mat-hint>DD/MM/YYYY –DD/MM/YYYY</mat-hint>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
@@ -19,7 +19,7 @@
         <input matStartDate [(ngModel)]="step.dateStart" placeholder="Start date">
         <input matEndDate [(ngModel)]="step.dateEnd" placeholder="End date">
       </mat-date-range-input>
-      <mat-hint>DD/MM/YYYY –DD/MM/YYYY</mat-hint>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-date-range-picker #picker></mat-date-range-picker>
     </mat-form-field>
@@ -38,7 +38,7 @@
         <mat-form-field appearance="fill" class="stepsFormControl">
           <mat-label>Milestone date</mat-label>
           <input matInput [matDatepicker]="milestonePicker" [(ngModel)]="milestone.date">
-          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matSuffix [for]="milestonePicker"></mat-datepicker-toggle>
           <mat-datepicker #milestonePicker></mat-datepicker>
         </mat-form-field>
