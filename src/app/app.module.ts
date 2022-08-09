@@ -97,16 +97,16 @@ import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.compon
     MatTooltipModule,
   ],
   providers: [
-    // {
-    //   provide: GANTT_GLOBAL_CONFIG,
-    //   useValue: {
-    //     dateFormat: {
-    //          yearQuarter: `QQQ 'of' yyyy`,
-    //          month: 'LLLL',
-    //          yearMonth: `LLLL yyyy'(week' w ')'`
-    //     }
-    //   }
-    // },
+    {
+      provide: GANTT_GLOBAL_CONFIG,
+      useValue: {
+        dateFormat: {
+             yearQuarter: `QQQ 'of' yyyy`,
+             month: 'LLLL',
+             yearMonth: `LLLL yyyy'(week' w ')'`
+        }
+      }
+    },
     // { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     // { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
   ],
