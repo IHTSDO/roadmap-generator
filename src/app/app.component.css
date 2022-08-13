@@ -109,6 +109,10 @@ h2 {
     margin: 20px;
 }
 
+#welcome-panel {
+    height: calc(100% - 65px);
+}
+
 .head-welcome {
     height: 700px;
     background-repeat: no-repeat;
