@@ -89,6 +89,8 @@ export class AppComponent implements OnInit{
 
   opened: boolean = true;
 
+  today = new Date();
+
   constructor(readonly snackBar: MatSnackBar, 
               public dialog: MatDialog,
               private http: HttpClient) {}
@@ -166,51 +168,58 @@ export class AppComponent implements OnInit{
     }, 100);
   }
 
-  changeSteps() {
-    setTimeout(() => {
-      if (this.selectedSteps.length > 0) {
-        let groups = this.selectedSteps.map( ({group}) => (group))
-        let groupsu =  [...new Set(groups)];
-        let stepsText = `<p>${this.stepsIntro}</p><ul>`;
-        groupsu.forEach( (group:any) => {
-          stepsText = stepsText + `<li><h3>${group}</h3><ul>`;
-          this.selectedSteps.forEach((step: any) => {
-            if (step.group == group) {
-              stepsText = stepsText + `<li><b>${step.step.opSelector}</b>`;
-              if (step.dateStart && step.dateEnd) {
-                stepsText = stepsText + ` (${step.dateStart.toISOString().split('T')[0]} to ${step.dateEnd.toISOString().split('T')[0]})`;
-              }
-              stepsText = stepsText + `<p>${step.step.text}</p>`;
-              if (step.step.milestones && step.step.milestones.length > 0) {
-                const sortedMilestones = step.step.milestones.sort(function(a:any,b:any){
-                  var key1 = a.date;
-                  var key2 = b.date;
-                  if (key1 < key2) {
-                      return -1;
-                  } else if (key1 == key2) {
-                      return 0;
-                  } else {
-                      return 1;
+  changeSteps(event?: any) {
+    if (!event || event.isUserInput) {
+      setTimeout(() => {
+        const stepsBkp = [...this.selectedSteps];
+        this.selectedSteps = [];
+        setTimeout(() => {
+          this.selectedSteps = stepsBkp;
+          if (this.selectedSteps.length > 0) {
+            let groups = this.selectedSteps.map( ({group}) => (group))
+            let groupsu =  [...new Set(groups)];
+            let stepsText = `<p>${this.stepsIntro}</p><ul>`;
+            groupsu.forEach( (group:any) => {
+              stepsText = stepsText + `<li><h3>${group}</h3><ul>`;
+              this.selectedSteps.forEach((step: any) => {
+                if (step.group == group) {
+                  stepsText = stepsText + `<li><b>${step.step.opSelector}</b>`;
+                  if (step.dateStart && step.dateEnd) {
+                    stepsText = stepsText + ` (${step.dateStart.toISOString().split('T')[0]} to ${step.dateEnd.toISOString().split('T')[0]})`;
                   }
-                });
-                stepsText = stepsText + `<ul>`;
-                sortedMilestones.forEach( (milestone: any) => {
-                  stepsText = stepsText + `<li>${milestone.date.toISOString().split('T')[0]} - ${milestone.name}: ${milestone.text}</li>`;
-                });
-                stepsText = stepsText + `</ul>`;
-              }
-              stepsText = stepsText + `</li>`;
-
-            }
-          })
-          stepsText = stepsText + `</ul></li>`;
-        });
-        this.replaceSection('Steps', `<h2>Implementation steps</h2>${stepsText}</ul>`);
-        this.nameChanged()
-      } else {
-        this.replaceSection('Steps', '');
-      }
-    }, 100);
+                  stepsText = stepsText + `<p>${step.step.text}</p>`;
+                  if (step.step.milestones && step.step.milestones.length > 0) {
+                    const sortedMilestones = step.step.milestones.sort(function(a:any,b:any){
+                      var key1 = a.date;
+                      var key2 = b.date;
+                      if (key1 < key2) {
+                          return -1;
+                      } else if (key1 == key2) {
+                          return 0;
+                      } else {
+                          return 1;
+                      }
+                    });
+                    stepsText = stepsText + `<ul>`;
+                    sortedMilestones.forEach( (milestone: any) => {
+                      stepsText = stepsText + `<li>${milestone.date.toISOString().split('T')[0]} - ${milestone.name}: ${milestone.text}</li>`;
+                    });
+                    stepsText = stepsText + `</ul>`;
+                  }
+                  stepsText = stepsText + `</li>`;
+    
+                }
+              })
+              stepsText = stepsText + `</ul></li>`;
+            });
+            this.replaceSection('Steps', `<h2>Implementation steps</h2>${stepsText}</ul>`);
+            this.nameChanged()
+          } else {
+            this.replaceSection('Steps', '');
+          }
+        }, 100);
+      }, 100);
+    }
   }
 
   addAllGroup(groupToAdd: string) {
@@ -220,7 +229,7 @@ export class AppComponent implements OnInit{
         group.options.forEach(option => {
           const matches = this.selectedSteps.filter(step => step.step.opSelector == option.opSelector);
           if (matches.length == 0) {
-            stepsToAdd.push({group: group.group, step: option, date: ''});
+            stepsToAdd.push({group: group.group, step: option, dateStart: this.today, dateEnd: this.today});
           }
         });
       }
@@ -251,7 +260,8 @@ export class AppComponent implements OnInit{
         this.selectedSteps.push({
           group: groupToAdd,
           step: result,
-          date: ''
+          dateStart: this.today,
+          dateEnd: this.today
         });
         this.changeSteps();
       }
@@ -342,6 +352,7 @@ export class AppComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.selectedSteps = [];
         this.selectedSteps = result.selectedSteps;
         this.roadmapStart = result.roadmapStart;
         this.roadmapEnd = result.roadmapEnd;

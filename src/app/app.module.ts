@@ -41,6 +41,7 @@ import { TimelineDialog } from './timeline-dialog/timeline-dialog';
 import { SafePipe } from './safe.pipe';
 import { TimelineChartComponent } from './timeline-chart/timeline-chart.component';
 import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.component';
+import { SortPipe } from './sort-pipe/sort.pipe'
 
 // const MY_DATE_FORMAT = {
 //   parse: {
@@ -66,7 +67,8 @@ import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.compon
     EditorListDialogComponent,
     SafePipe,
     TimelineChartComponent,
-    NewStepDialogComponent
+    NewStepDialogComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -107,6 +109,7 @@ import { NewStepDialogComponent } from './new-step-dialog/new-step-dialog.compon
         }
       }
     },
+    SortPipe
     // { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     // { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
   ],
