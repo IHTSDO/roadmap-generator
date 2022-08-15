@@ -28,7 +28,7 @@
 </button>
 <mat-sidenav-container [hasBackdrop]="false" id="sidenav-main">
   <mat-sidenav #sidenav [mode]="'side'" [opened]="false" class="rmsidenav">
-    <h2>Select components</h2>
+    <h2>Select roadmap components</h2>
       <mat-form-field class="example-form-field" appearance="fill" class="selectorsControl">
         <mat-label>Country name</mat-label>
         <input matInput type="text" [(ngModel)]="country" name="country" (ngModelChange)="nameChanged()">
@@ -210,7 +210,7 @@
         </div>
         <div fxLayout="row" fxLayoutAlign="end center" class="chart-buttons">
           <button mat-raised-button color="primary" (click)="openGanttDialog()">
-            Open Gantt in new window
+            Open Gantt
           </button>
           <button mat-raised-button color="primary" (click)="openGanttAsPng()">
             Open Gantt as PNG new window
@@ -222,7 +222,7 @@
         </div>
         <div fxLayout="row" fxLayoutAlign="end center" class="chart-buttons">
           <button mat-raised-button color="primary" (click)="openTimelineDialog()">
-            Open Timeline in new window
+            Open Timeline
           </button>
           <button mat-raised-button color="primary" (click)="openTimelineAsPng()">
             Open Timeline as PNG new window
