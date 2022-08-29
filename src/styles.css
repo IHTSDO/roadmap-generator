@@ -9,3 +9,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button.mat-menu-item {
     margin-left: 5px !important;
 }
+.mat-tooltip {
+    font-size: large !important;
+}

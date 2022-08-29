@@ -36,6 +36,10 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="Enter the name of the country or region where this strategy will apply to." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
+      </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Background</mat-label>
         <mat-select [(ngModel)]="selectedBackground" [compareWith]="compareOptions">
@@ -48,8 +52,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openBackgroundsEditor()" [disabled]="!selectedBackground"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="The background section provides information about SNOMED CT and  about the organization publishing this roadmap." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Vision</mat-label>
@@ -60,8 +68,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openVisionEditor()" [disabled]="!selectedVisions.length"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="The vision for the state of the healthcare landscape in the future, focusing in the aspects that will be supported by the completion of this roadmap." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Current eHealth landscape</mat-label>
@@ -75,8 +87,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openCurrentStateEditor()" [disabled]="!selectedCurrentState"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="A description of the current eHealth landscape in the country or territory where this roadmap applies to." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Goals</mat-label>
@@ -87,8 +103,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openGoalsEditor()" [disabled]="!selectedGoals.length"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="The main goals to be achieved by the completion of this roadmap." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Clinical focus</mat-label>
@@ -99,8 +119,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openFocusEditor()" [disabled]="!selectedClinicalFocus.length"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="The clinical areas that will be the main focus of this roadmap." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Roadmap steps</mat-label>
@@ -115,8 +139,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openStepsDialog()" [disabled]="selectedSteps.length == 0"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="The steps and milestones of this roadmap. Dates can be specified to support detailed planning." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Implementation projects</mat-label>
@@ -130,8 +158,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openProjectsEditor()" [disabled]="!selectedProject"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="A list of implementation projects that will be executed in the context of this roadmap." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
       <mat-form-field appearance="fill" class="selectorsControl">
         <mat-label>Closing remarks</mat-label>
@@ -145,8 +177,12 @@
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openClosingEditor()" [disabled]="!selectedClosing"
-      matTooltip="Edit options text" [matTooltipPosition]="'right'">
+      matTooltip="Edit options text" [matTooltipPosition]="'left'">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [disabled]="false"
+      matTooltip="Closing words to wrap up the document and an opportunity to highlight important messages." [matTooltipPosition]="'left'">
+        <mat-icon>help</mat-icon>
       </button>
   </mat-sidenav>
   <mat-sidenav-content>
