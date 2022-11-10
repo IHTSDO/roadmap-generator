@@ -18,6 +18,18 @@ export const steps = [
           </ul>`
         },
         {
+          opSelector: "Identify requirements of policy changes",
+          text: `<p>The use of terminologies and code systems are usually mandated by policies and regulations around public 
+          health statistics, billing, existing disease registries, healthcare coverage benefits, etc. It is important to 
+          understand these requirements to ensure that the proposed SNOMED implementation will fit properly with those requirements 
+          or that any necessary changes are introduced:</p>
+          <ul>
+            <li>Identify regulations that mandate clinical coding and reporting.</li>
+            <li>Plan the creation of maps from SNOMED to existing code systems.</li>
+            <li>Update regulations to include SNOMED CT.</li>
+          </ul>`
+        },
+        {
           opSelector: "Identify impactful national projects",
           text: `<p>Identify projects that will have a significant impact in the national healthcare scenario, supporting 
           the implementation of policies related to the top priorities of the national healthcare agenda.</p>
