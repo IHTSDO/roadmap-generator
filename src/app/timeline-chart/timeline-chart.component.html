@@ -1,17 +1,17 @@
 <mzd-timeline>
     <mzd-timeline-content [border]="true">
-      <mzd-icon><fa-icon [icon]="faFlagCheckered" style="color: chocolate;"></fa-icon></mzd-icon>
+      <mzd-icon><fa-icon [icon]="faFlagCheckered" style="color: grey;"></fa-icon></mzd-icon>
       {{data.roadmapStart | date:'mediumDate'}}: Roadmap starts!
     </mzd-timeline-content>
     <mzd-timeline-content *ngFor="let step of data.selectedSteps | sort:'asc':'dateEnd'" [border]="true">
-      <mzd-icon><fa-icon [icon]="faList" style="color: chocolate;" *ngIf="step.group == 'Standards and Artifacts'"></fa-icon></mzd-icon>
-      <mzd-icon><fa-icon [icon]="faNetworkWired" style="color: chocolate;" *ngIf="step.group == 'Infrastructure'"></fa-icon></mzd-icon>
-      <mzd-icon><fa-icon [icon]="faGraduationCap" style="color: chocolate;" *ngIf="step.group == 'Plan Adoption'"></fa-icon></mzd-icon>
-      <mzd-icon><fa-icon [icon]="faUsers" style="color: chocolate;" *ngIf="step.group == 'Capacity Building'"></fa-icon></mzd-icon>
+      <mzd-icon><fa-icon [icon]="faList" style="color: grey;" *ngIf="step.group == 'Standards and Artifacts'"></fa-icon></mzd-icon>
+      <mzd-icon><fa-icon [icon]="faNetworkWired" style="color: grey;" *ngIf="step.group == 'Infrastructure'"></fa-icon></mzd-icon>
+      <mzd-icon><fa-icon [icon]="faGraduationCap" style="color: grey;" *ngIf="step.group == 'Plan Adoption'"></fa-icon></mzd-icon>
+      <mzd-icon><fa-icon [icon]="faUsers" style="color: grey;" *ngIf="step.group == 'Capacity Building'"></fa-icon></mzd-icon>
       {{step.dateEnd | date:'mediumDate'}}: {{step.step.opSelector}}
     </mzd-timeline-content>
     <mzd-timeline-content [border]="true">
-      <mzd-icon><fa-icon [icon]="faCheck" style="color: chocolate;"></fa-icon></mzd-icon>
+      <mzd-icon><fa-icon [icon]="faCheck" style="color: grey;"></fa-icon></mzd-icon>
       {{data.roadmapEnd | date:'mediumDate'}}: Roadmap ends!
     </mzd-timeline-content>
   </mzd-timeline>
