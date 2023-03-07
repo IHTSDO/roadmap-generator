@@ -84,8 +84,8 @@ export class AppComponent implements OnInit{
   selectedClosing: any | undefined;
 
   roadmap: any = '';
-  roadmapStart: Date = new Date('2022-01-01');
-  roadmapEnd: Date = new Date('2022-12-31');
+  roadmapStart: Date = new Date(new Date().getFullYear(), 0, 1);;
+  roadmapEnd: Date = new Date(new Date().getFullYear(), 11, 31);
 
   opened: boolean = true;
 
