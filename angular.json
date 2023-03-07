@@ -41,6 +41,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://ihtsdo.github.io/roadmap-generator/",
               "budgets": [
                 {
                   "type": "initial",
