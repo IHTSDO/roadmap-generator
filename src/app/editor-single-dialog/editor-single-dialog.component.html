@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Editor single</h1>
+<h1 mat-dialog-title>Edit content</h1>
 <div mat-dialog-content>
-  <!-- <app-editor-single [text]="data.text"></app-editor-single> -->
+  <h3>{{data.opSelector}}</h3>
   <ckeditor [editor]="Editor" [(ngModel)]="data.text"></ckeditor>
 </div>
 <div mat-dialog-actions>

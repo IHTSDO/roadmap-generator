@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>Editor single</h1>
+<h1 mat-dialog-title>Edit content</h1>
 <div mat-dialog-content>
-  <!-- <app-editor-single [text]="data.text"></app-editor-single> -->
   <div *ngFor="let item of data.selectedOptions">
-    <h3>{{item.opSelector}}</h3>
+    <mat-form-field appearance="fill" class="selectorsControl">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" [(ngModel)]="item.opSelector" name="text">
+    </mat-form-field>  
     <ckeditor [editor]="Editor" [(ngModel)]="item.text"></ckeditor>
   </div>
 </div>

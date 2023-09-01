@@ -30,7 +30,7 @@
   <mat-sidenav #sidenav [mode]="'side'" [opened]="false" class="rmsidenav">
     <h2>Select roadmap components</h2>
       <mat-form-field class="example-form-field" appearance="fill" class="selectorsControl">
-        <mat-label>Country name</mat-label>
+        <mat-label>Country or Organization name</mat-label>
         <input matInput type="text" [(ngModel)]="country" name="country" (ngModelChange)="nameChanged()">
         <button *ngIf="country" matSuffix mat-icon-button aria-label="Clear" (click)="country=''">
           <mat-icon>close</mat-icon>
@@ -65,6 +65,7 @@
           <mat-option *ngFor="let vision of visions" [value]="vision" (onSelectionChange)="changeVision()">
             {{vision.opSelector}}
           </mat-option>
+          <button mat-flat-button (click)="addCustomVision()">Add custom vision</button>
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openVisionEditor()" [disabled]="!selectedVisions.length"
@@ -100,6 +101,7 @@
           <mat-option *ngFor="let goal of goals" [value]="goal" (onSelectionChange)="changeGoals()">
             {{goal.opSelector}}
           </mat-option>
+          <button mat-flat-button (click)="addCustomGoal()">Add custom goal</button>
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openGoalsEditor()" [disabled]="!selectedGoals.length"
@@ -192,11 +194,11 @@
         File
       </button>
       <mat-menu #fileMenu="matMenu">
-        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < 460">Download Roadmap</button>
+        <button mat-menu-item (click)="export()" [disabled]="roadmap.length < emptyTemplateLength">Download Roadmap</button>
         <button mat-menu-item (click)="fileInput.click()">Upload Roadmap</button>
-        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < 460">Clear Roadmap</button>
+        <button mat-menu-item (click)="clear()" [disabled]="roadmap.length < emptyTemplateLength">Clear Roadmap</button>
       </mat-menu>
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu" class="action-button" *ngIf="roadmap.length >= 460">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu" class="action-button" *ngIf="roadmap.length >= emptyTemplateLength">
         <mat-icon>cloud_download</mat-icon>
         Export
       </button>
@@ -221,7 +223,7 @@
         Edit dates
       </button>
     </div>
-    <div class="nav-content" *ngIf="roadmap.length < 460" id="welcome-panel">
+    <div class="nav-content" *ngIf="roadmap.length < emptyTemplateLength" id="welcome-panel">
       <div class="head-welcome" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
         <p class="welcome-title">Welcome to the SNOMED CT Implementation Roadmap Generator</p>
         <div class="head-ps">
@@ -235,7 +237,7 @@
       </div>
       <!-- <img src="assets/img/swirl.png" class="img-center"> -->
     </div>
-    <div class="nav-content" *ngIf="roadmap.length >= 460">
+    <div class="nav-content" *ngIf="roadmap.length >= emptyTemplateLength">
       <div [innerHTML]="roadmap | safe: 'html'" id="roadmap-preview"></div>
       <hr>
       <div *ngIf="selectedSteps.length > 0" id="planning">

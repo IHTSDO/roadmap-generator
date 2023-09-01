@@ -60,21 +60,23 @@ interface dataGrouper {
 })
 export class AppComponent implements OnInit{
   title = 'roadmap-generator';
-  country= 'Country name';
+  country= 'Country or Organization Name';
+
+  emptyTemplateLength = 478;
 
   backgrounds!: sourceData[];
   selectedBackground: any | undefined;
   visionIntro = '';
   visions!: sourceData[];
-  selectedVisions = [];
+  selectedVisions: any[] = [];
   currentStates!: sourceData[];
   selectedCurrentState: any | undefined;
   goalsIntro = '';
   goals!: sourceData[];
-  selectedGoals = [];
+  selectedGoals: any[] = [];
   clinicalFocusIntro = '';
   clinicalFocus!: sourceData[];
-  selectedClinicalFocus = [];
+  selectedClinicalFocus: any[] = [];
   stepsIntro = '';
   stepOptions!: dataGrouper[];
   selectedSteps:any[] = [];
@@ -138,6 +140,16 @@ export class AppComponent implements OnInit{
     }, 100);
   }
 
+  addCustomVision() {
+    this.visions.push({
+      opSelector: "New vision",
+      text: `<li><mark>[INSTRUCTIONS - replace with vision details]</mark></li>`
+    });
+    // set selected vision to the last one
+    this.selectedVisions.push(this.visions[this.visions.length-1]);
+    this.openVisionEditor()
+  }
+
   changeGoals() {
     setTimeout(() => {
       if (this.selectedGoals.length > 0) {
@@ -151,6 +163,16 @@ export class AppComponent implements OnInit{
         this.replaceSection('Goals', '');
       }
     }, 100);
+  }
+
+  addCustomGoal() {
+    this.goals.push({
+      opSelector: "New goal",
+      text: `<p><mark>[INSTRUCTIONS - replace with goal details]</mark></p>`
+    });
+    // set selected vision to the last one
+    this.selectedGoals.push(this.goals[this.goals.length-1]);
+    this.openGoalsEditor()
   }
 
   changeClinicalFocus() {
@@ -267,6 +289,7 @@ export class AppComponent implements OnInit{
       }
     });
   }
+
 
   change(section: string, event: any) {
     if(event.isUserInput) {
@@ -409,6 +432,7 @@ export class AppComponent implements OnInit{
       width: '100%',
       height: '90%',
       data: {
+        opSelector: "Background",
         text: this.selectedBackground.text
       },
       disableClose: true
@@ -428,6 +452,7 @@ export class AppComponent implements OnInit{
       width: '100%',
       height: '90%',
       data: {
+        opSelector: "Current state",
         text: this.selectedCurrentState.text
       },
       disableClose: true
@@ -447,6 +472,7 @@ export class AppComponent implements OnInit{
       width: '100%',
       height: '90%',
       data: {
+        opSelector: "Projects",
         text: this.selectedProject.text
       },
       disableClose: true
@@ -466,6 +492,7 @@ export class AppComponent implements OnInit{
       width: '100%',
       height: '90%',
       data: {
+        opSelector: "Closing remarks",
         text: this.selectedClosing.text
       },
       disableClose: true
@@ -494,8 +521,13 @@ export class AppComponent implements OnInit{
       if (result) {
         result.selectedOptions.forEach( (loopVision:any) => {
           loopVision.text = loopVision.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+          // remove <ul> and </ul> tags from loopVision.text
+          loopVision.text = loopVision.text.replace(/<ul>/g,"");
+          loopVision.text = loopVision.text.replace(/<\/ul>/g,"");
         })
+
         this.selectedVisions = result.selectedOptions;
+        console.log(this.selectedVisions)
         this.changeVision();
         this.nameChanged();
       }
@@ -516,6 +548,8 @@ export class AppComponent implements OnInit{
       if (result) {
         result.selectedOptions.forEach( (loopItem:any) => {
           loopItem.text = loopItem.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+          loopItem.text = loopItem.text.replace(/<ul>/g,"");
+          loopItem.text = loopItem.text.replace(/<\/ul>/g,"");
         })
         this.selectedGoals = result.selectedOptions;
         this.changeGoals();
