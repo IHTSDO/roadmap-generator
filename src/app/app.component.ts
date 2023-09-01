@@ -190,6 +190,18 @@ export class AppComponent implements OnInit{
     }, 100);
   }
 
+  addCustomClinicalFocus() {
+    this.clinicalFocus.push({
+      opSelector: "New clinical focus",
+      text: `<p><mark>
+        [INSTRUCTIONS - replace with clinical focus details]
+        </mark></p>`
+      });
+    // set selected vision to the last one
+    this.selectedClinicalFocus.push(this.clinicalFocus[this.clinicalFocus.length-1]);
+    this.openFocusEditor()
+  }
+
   changeSteps(event?: any) {
     if (!event || event.isUserInput) {
       setTimeout(() => {
@@ -572,6 +584,8 @@ export class AppComponent implements OnInit{
       if (result) {
         result.selectedOptions.forEach( (loopItem:any) => {
           loopItem.text = loopItem.text.replace(/COUNTRY/g,"<span class='country'>COUNTRY</span>");
+          loopItem.text = loopItem.text.replace(/<ul>/g,"");
+          loopItem.text = loopItem.text.replace(/<\/ul>/g,"");
         })
         this.selectedClinicalFocus = result.selectedOptions;
         this.changeClinicalFocus();

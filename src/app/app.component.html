@@ -118,6 +118,7 @@
           <mat-option *ngFor="let focus of clinicalFocus" [value]="focus" (onSelectionChange)="changeClinicalFocus()">
             {{focus.opSelector}}
           </mat-option>
+          <button mat-flat-button (click)="addCustomClinicalFocus()">Add custom clinical focus</button>
         </mat-select>
       </mat-form-field>
       <button mat-icon-button color="primary" (click)="openFocusEditor()" [disabled]="!selectedClinicalFocus.length"
